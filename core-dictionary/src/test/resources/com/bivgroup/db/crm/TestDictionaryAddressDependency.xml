@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dataset>
+        <!--  Состояние на Классификатор  состояний-->
+    <SAD_ATTRIBUTE ID="12013" ENTITYID="12000" CATEGORY="2" FIELDNAME="Состояние" DATATYPE="java.lang.Long"
+                   SYSNAME="StateID" REFENTITYID="11200" REFATTRIBUTEID="11211" IsPrimaryKey="0"/>
+    <SAD_ATTRIBUTE ID="12011" ENTITYID="12000" CATEGORY="1" FIELDNAME="ИД объекта" DATATYPE="java.lang.Long" IsPrimaryKey="1"
+                   SYSNAME="ID"/>
+    <SAD_ATTRIBUTE ID="12014" ENTITYID="12000" CATEGORY="1" FIELDNAME="Признак 'Основной'" DATATYPE="java.lang.Integer"
+                   SYSNAME="IsPrimary"/>
+
+        <!--  Состояние на Классификатор  состояний-->
+    <SAD_ATTRIBUTE ID="12113" ENTITYID="12100" CATEGORY="2" FIELDNAME="Состояние" DATATYPE="java.lang.Long"
+                   SYSNAME="StateID" REFENTITYID="11200" REFATTRIBUTEID="11211"/>
+    <SAD_ATTRIBUTE ID="12111" ENTITYID="12100" CATEGORY="1" FIELDNAME="ИД объекта" DATATYPE="java.lang.Long" IsPrimaryKey="1"
+                   SYSNAME="ID"/>
+    <SAD_ATTRIBUTE ID="12114" ENTITYID="12100" CATEGORY="1" FIELDNAME="Признак 'Основной'" DATATYPE="java.lang.Integer"
+                   SYSNAME="IsPrimary"/>
+
+
+</dataset>

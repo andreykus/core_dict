@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dataset>
+    <SAD_VERSION ID="10010" VERSION="1.0.1"/>
+
+    <!-- Модуль для и версия Aspect-->
+    <SAD_MODULE ID="10001" GROUPID="com.bivgroup" ARTIFACTID="aspect" PACKAGING="JAR"/>
+    <SAD_MODULE_VERSION MODULEID="10001" VERSIONID="10010"/>
+
+    <!-- Модуль для и версия CRM -->
+    <SAD_MODULE ID="10010" GROUPID="com.bivgroup" ARTIFACTID="crm" PACKAGING="JAR"/>
+    <SAD_MODULE_VERSION MODULEID="10010" VERSIONID="10010"/>
+    <SAD_DEPENDENCY ID="1001" DEPENDENCYID="10001" MODULEID="10010"/>
+
+
+    <!-- Модуль для и версия Termination -->
+    <SAD_MODULE ID="10110" GROUPID="com.bivgroup" ARTIFACTID="termination" PACKAGING="JAR"/>
+    <SAD_MODULE_VERSION MODULEID="10110" VERSIONID="10010"/>
+    <!-- Модуль Termination зависит от модуля CRM-->
+    <SAD_DEPENDENCY ID="1002" DEPENDENCYID="10010" MODULEID="10110"/>
+    <SAD_DEPENDENCY ID="1003" DEPENDENCYID="10001" MODULEID="10110"/>
+
+
+    <SAD_ASPECT ID="1001" NAME="Аспект бинарный файл" SYSNAME="BinaryFile" NOTE="Аспект бинарный файл" MODULEID="10010"/>
+    <SAD_ASPECT ID="1002" NAME="Версинонность" SYSNAME="VersionAspect" NOTE="Версинонность" MODULEID="10010"/>
+    <SAD_ASPECT ID="1003" NAME="Доступ" SYSNAME="AuthAspect" NOTE="Доступ" MODULEID="10010"/>
+
+</dataset>

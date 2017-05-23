@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dataset>
+    <!--  Контакт  -->
+    <SAD_ENTITY ID="10800" ISMETAENTITY="1" NAME="Контакт" TABLENAME="SD_Contact" NOTE="Контакт" SYSNAME="Contact" MODULEID="10010"/>
+        <!-- Тип контакта на Классификатор Тип контакта-->
+    <SAD_ATTRIBUTE ID="10813" ENTITYID="10800" CATEGORY="2" FIELDNAME="Тип контакта" DATATYPE="java.lang.Long"
+                   SYSNAME="TypeID"  REFENTITYID="10900" REFATTRIBUTEID="10911" IsPrimaryKey="0"/>
+    <SAD_ATTRIBUTE ID="10811" ENTITYID="10800" CATEGORY="1" FIELDNAME="ИД объекта" DATATYPE="java.lang.Long" IsPrimaryKey="1"
+                   SYSNAME="ID"/>
+    <SAD_ATTRIBUTE ID="10812" ENTITYID="10800" CATEGORY="1" FIELDNAME="ИД сущности" DATATYPE="java.lang.Long"
+                   SYSNAME="EID"/>
+    <SAD_ATTRIBUTE ID="10814" ENTITYID="10800" CATEGORY="1" FIELDNAME="Значение" DATATYPE="java.lang.String"
+                   SYSNAME="Value"/>
+
+</dataset>

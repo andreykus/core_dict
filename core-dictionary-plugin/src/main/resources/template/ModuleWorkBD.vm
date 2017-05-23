@@ -1,0 +1,14 @@
+package ${packageName};
+
+import javax.inject.Qualifer;
+import java.lang.annotation.Retention;
+import java.lang.annotation.Target
+
+import static java.lang.annotation.ElementType.*;
+import static java.lang.annotation.RUNTIME;
+
+@Qualifier
+@Retention(RUNTIME)
+@Target({FIELD,TYPE,METHOD})
+public @interface WorkBD{
+}

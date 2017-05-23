@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+             version="2.1">
+    <!-- Generate by core-dictionary-plugin for module ${className} -->
+    <persistence-unit name="${unitName}">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        #if ($jndi)
+            <jta-data-source>${jndi}</jta-data-source>
+        #end
+        <!-- Configuring class Entity -->
+        #if ($classList)
+            #foreach ($clazz in $classList)
+                <class>${clazz}</class>
+            #end
+        #end
+        <properties>
+
+            <!-- Hibernate properties -->
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.use_sql_comments" value="true"/>
+            <!-- <property name="hibernate.hbm2ddl.auto" value="update"/>-->
+
+            <!-- Configuring inner hbm.xml-->
+            #if ($cfgName)
+                <property name="hibernate.ejb.cfgfile" value="${cfgName}"/>
+            #end
+
+            <property name="jboss.as.jpa.providerModule" value="org.hibernate:5.2.4.Final"/>
+        </properties>
+    </persistence-unit>
+
+</persistence>

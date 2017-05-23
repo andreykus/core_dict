@@ -1,0 +1,176 @@
+<?xml version="1.0"?>
+<!--
+  ~ Hibernate, Relational Persistence for Idiomatic Java
+  ~
+  ~ License: GNU Lesser General Public License (LGPL), version 2.1 or later.
+  ~ See the lgpl.txt file in the root directory or <http://www.gnu.org/licenses/lgpl-2.1.html>.
+  -->
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+                 version="1.0">
+
+    <named-native-query name="getExchangeTypes">
+        <query>
+            SELECT * FROM REF_EXCHANGETYPE
+        </query>
+    </named-native-query>
+
+    <named-native-query name="getExchangeList">
+        <query>
+            SELECT
+            EXCHANGE.EXCHANGEID AS EXCHANGEID,
+            ETYPE.COURSETYPENAME AS TYPENAME,
+            EXCHANGE.UNITS,
+            EXCHANGE.COURSEDATE,
+            EXCHANGE.COURSEVALUE,
+            C1.ALPHACODE AS SOURCECUR,
+            C2.ALPHACODE AS TARGETCUR
+            FROM REF_EXCHANGE EXCHANGE,
+            REF_EXCHANGETYPE ETYPE,
+            REF_CURRENCYPAIR PAIRS,
+            REF_CURRENCY C1,
+            REF_CURRENCY C2
+            WHERE
+            ETYPE.EXCHANGETYPEID = EXCHANGE.EXCHANGETYPEID AND EXCHANGE.CURRENCYPAIRID = PAIRS.CURRENCYPAIRID AND
+            PAIRS.BASECURRENCYID = C1.CURRENCYID AND PAIRS.QUOTEDCURRENCYID = C2.CURRENCYID
+            AND (:exchangeType IS NULL OR ETYPE.COURSETYPENAME = :exchangeType)
+            AND (:exchangeTypeId IS NULL OR EXCHANGE.EXCHANGETYPEID = :exchangeTypeId)
+            AND (:purposeCurrency IS NULL OR C1.ALPHACODE = :purposeCurrency)
+            AND ((:searchStartDate IS NULL OR :searchEndDateIS IS NULL) OR (EXCHANGE.COURSEDATE BETWEEN :searchStartDate
+            AND :searchEndDate))
+            ORDER BY EXCHANGE.EXCHANGEID
+        </query>
+        <!--TODO Insert from Count (warn insert limit-->
+    </named-native-query>
+
+    <named-native-query name="getExchangeListCount">
+        <query>SELECT COUNT(*)
+            FROM REF_EXCHANGE EXCHANGE,
+            REF_EXCHANGETYPE ETYPE,
+            REF_CURRENCYPAIR PAIRS,
+            REF_CURRENCY C1,
+            REF_CURRENCY C2
+            WHERE
+            ETYPE.EXCHANGETYPEID = EXCHANGE.EXCHANGETYPEID AND EXCHANGE.CURRENCYPAIRID = PAIRS.CURRENCYPAIRID AND
+            PAIRS.BASECURRENCYID = C1.CURRENCYID AND PAIRS.QUOTEDCURRENCYID = C2.CURRENCYID
+            AND (:exchangeType IS NULL OR ETYPE.COURSETYPENAME = :exchangeType)
+            AND (:exchangeTypeId IS NULL OR EXCHANGE.EXCHANGETYPEID = :exchangeTypeId)
+            AND (:purposeCurrency IS NULL OR C1.ALPHACODE = :purposeCurrency )
+            AND ((:searchStartDate IS NULL OR :searchEndDateIS IS NULL) OR (EXCHANGE.COURSEDATE BETWEEN :searchStartDate
+            AND :searchEndDate))
+            -- ORDER BY :ORDERBY
+        </query>
+    </named-native-query>
+
+    <named-native-query name="getCurrencyPairsListCount">
+        <query><![CDATA[
+            SELECT COUNT(*)
+            FROM REF_CURRENCYPAIR RCP
+                LEFT JOIN REF_CURRENCY RCB ON RCB.CURRENCYID = RCP.BASECURRENCYID
+                LEFT JOIN REF_CURRENCY RCQ ON RCQ.CURRENCYID = RCP.QUOTEDCURRENCYID
+            WHERE
+                (1=1)
+                AND (:STATUS IS NULL OR RCP.STATUS = :STATUS)
+                AND (:BASECURRENCY IS NULL OR (RCB.CURRENCYNAME LIKE :BASECURRENCY || '%') )
+                AND (:QUOTEDCURRENCY IS NULL OR (RCQ.CURRENCYNAME LIKE :QUOTEDCURRENCY || '%') )
+                AND (:STARTDATE IS NULL OR RCP.STARTDATE >= :STARTDATE)
+                AND (:ENDDATE IS NULL OR RCP.ENDDATE <= :ENDDATE)
+            ]]>
+        </query>
+        <!-- ORDER BY $ORDERBY-->
+    </named-native-query>
+
+    <named-native-query name="getCurrencyPairsList">
+        <query><![CDATA[
+            SELECT
+                RCP.CURRENCYPAIRID, RCB.CURRENCYNAME AS BASECURRENCY, RCQ.CURRENCYNAME AS QUOTEDCURRENCY,
+                RCP.STATUS, RCP.STARTDATE, RCP.ENDDATE
+            FROM REF_CURRENCYPAIR RCP
+                LEFT JOIN REF_CURRENCY RCB ON RCB.CURRENCYID = RCP.BASECURRENCYID
+                LEFT JOIN REF_CURRENCY RCQ ON RCQ.CURRENCYID = RCP.QUOTEDCURRENCYID
+            WHERE
+                (1=1)
+                AND (:BASECURRENCY IS NULL OR RCB.CURRENCYNAME LIKE :BASECURRENCY || '%' )
+                AND (:QUOTEDCURRENCY IS NULL OR RCQ.CURRENCYNAME LIKE :QUOTEDCURRENCY || '%')
+                AND (:STATUS IS NULL OR RCP.STATUS = :STATUS)
+                AND (:STARTDATE IS NULL OR RCP.STARTDATE >= :STARTDATE)
+                AND (:ENDDATE IS NULL OR RCP.ENDDATE <= :ENDDATE)
+            ORDER BY RCP.CURRENCYPAIRID
+            ]]>
+        </query>
+    </named-native-query>
+
+    <named-native-query name="admRefCurrencyListCount">
+        <query>
+            SELECT
+            COUNT(*)
+            FROM REF_CURRENCY
+            WHERE
+            (1=1)
+            AND (:SEARCHTEXT IS NULL OR :SEARCHCOLUMN LIKE :SEARCHTEXT || '%')
+            AND (:CURRENCYID IS NULL OR CURRENCYID = :CURRENCYID)
+            AND (:ALPHACODE IS NULL OR ALPHACODE = :ALPHACODE)
+            AND (:NUMERICCODE IS NULL OR NUMERICCODE = :NUMERICCODE)
+        </query>
+    </named-native-query>
+
+    <named-native-query name="admRefCurrencyList">
+        <query>
+            SELECT
+            CURRENCYID ,
+            NUMERICCODE ,
+            ALPHACODE ,
+            CURRENCYNAME ,
+            NAMEWORDFORMID ,
+            MINORUNIT ,
+            MINORUNITFORMID ,
+            FRACTIONALPART ,
+            ISONUMBER
+            FROM REF_CURRENCY
+            WHERE
+            (1=1)
+            AND (:SEARCHTEXT IS NULL OR :SEARCHCOLUMN LIKE :SEARCHTEXT || '%')
+            AND (:CURRENCYID IS NULL OR CURRENCYID = :CURRENCYID)
+            AND (:ALPHACODE IS NULL OR ALPHACODE = :ALPHACODE)
+            AND (:NUMERICCODE IS NULL OR NUMERICCODE = :NUMERICCODE)
+            AND (:ISONUMBER IS NULL OR ISONUMBER = :ISONUMBER)
+            ORDER BY ALPHACODE
+        </query>
+    </named-native-query>
+
+    <named-native-query name="getExchangeTypeByName">
+        <query>
+            SELECT * FROM REF_EXCHANGETYPE WHERE COURSETYPENAME = :CourseTypeName
+        </query>
+    </named-native-query>
+
+    <named-native-query name="checkCurrencyPairDate">
+        <query><![CDATA[
+            SELECT *
+            FROM REF_CURRENCYPAIR
+            WHERE
+                STARTDATE <= :CourseDate
+                AND (ENDDATE IS NULL OR ENDDATE = NULL OR ENDDATE >= :CourseDate)
+
+            ]]>
+        </query>
+    </named-native-query>
+
+    <named-native-query name="checkExistingRate">
+        <query>SELECT EXCHANGEID
+            FROM REF_EXCHANGE
+            WHERE
+            COURSEDATE = :CourseDate
+            AND CURRENCYPAIRID = :CurrencyPairId
+            AND EXCHANGETYPEID = :ExchangeTypeId
+        </query>
+    </named-native-query>
+
+    <named-native-query name="createCurrencyExchange">
+        <query>
+            INSERT INTO REF_EXCHANGE (EXCHANGEID, EXCHANGETYPEID, COURSEDATE, UNITS, COURSEVALUE, CURRENCYPAIRID)
+            VALUES (:CurrencyExchangeId, :ExchangeTypeId, :CourseDate, :UnitNumber, :CourseValue, :CurrencyPairId)
+        </query>
+    </named-native-query>
+
+
+</entity-mappings>

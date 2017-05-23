@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dataset>
+    <!--  Физическое лицо  -->
+    <SAD_ENTITY ID="10600" ISMETAENTITY="1" NAME="Физическое лицо" TABLENAME="CDM_PPerson" NOTE="Физическое лицо" SYSNAME="PPerson" PARENTID="10500" MODULEID="10010"/>
+
+
+    <!--  Страна регистрации ссылается на Классификатор  стран -->
+    <SAD_ATTRIBUTE ID="10514" ENTITYID="10500" CATEGORY="2" FIELDNAME="Страна регистрации" DATATYPE="java.lang.Long"
+                   SYSNAME="CountryID" REFENTITYID="11300" REFATTRIBUTEID="11311" IsPrimaryKey="0"/>
+        <!--  Состояние на Классификатор  состояний-->
+    <SAD_ATTRIBUTE ID="10518" ENTITYID="10500" CATEGORY="2" FIELDNAME="Состояние" DATATYPE="java.lang.Long"
+                   SYSNAME="StateID"  REFENTITYID="11200" REFATTRIBUTEID="11211"/>
+        <!--  Банковские реквизиты-->
+    <SAD_ATTRIBUTE ID="10519" ENTITYID="10500" CATEGORY="2" FIELDNAME="Банковские реквизиты" DATATYPE="java.lang.Long"
+                   SYSNAME="BankDetailsID"  REFENTITYID="100000" REFATTRIBUTEID="100011"/>
+
+    <SAD_ATTRIBUTE ID="10511" ENTITYID="10500" CATEGORY="1" FIELDNAME="ИД объекта" DATATYPE="java.lang.Long" IsPrimaryKey="1"
+                   SYSNAME="ID"/>
+        <!--  Документ Контрагента на Контрагента-->
+    <SAD_ATTRIBUTE ID="11812" ENTITYID="11800" CATEGORY="2" FIELDNAME="Контрагент" DATATYPE="java.lang.Long"
+                   SYSNAME="PersonID" REFENTITYID="10500" REFATTRIBUTEID="10511" />
+        <!--  Адрес Контрагента а на Контрагента-->
+    <SAD_ATTRIBUTE ID="12112" ENTITYID="12100" CATEGORY="2" FIELDNAME="Контрагент" DATATYPE="java.lang.Long"
+                   SYSNAME="PersonID" REFENTITYID="10500" REFATTRIBUTEID="10511" IsPrimaryKey="0"/>
+        <!--  Контакт Контрагента на Контрагента-->
+    <SAD_ATTRIBUTE ID="11112" ENTITYID="11100" CATEGORY="2" FIELDNAME="Контрагент" DATATYPE="java.lang.Long"
+                   SYSNAME="PersonID" REFENTITYID="10500" REFATTRIBUTEID="10511" IsPrimaryKey="0" />
+
+    <SAD_ATTRIBUTE ID="10515" ENTITYID="10500" CATEGORY="3" FIELDNAME="Документы" DATATYPE="java.lang.Long"
+                   SYSNAME="Documents" REFENTITYID="11800" REFATTRIBUTEID="11812"/>
+    <SAD_ATTRIBUTE ID="10516" ENTITYID="10500" CATEGORY="3" FIELDNAME="Адреса" DATATYPE="java.lang.Long"
+                   SYSNAME="Addresses" REFENTITYID="12100" REFATTRIBUTEID="12112"/>
+    <SAD_ATTRIBUTE ID="10517" ENTITYID="10500" CATEGORY="3" FIELDNAME="Контакты" DATATYPE="java.lang.Long"
+                   SYSNAME="Contacts" REFENTITYID="11100" REFATTRIBUTEID="11112"/>
+
+    <SAD_ATTRIBUTE ID="10512" ENTITYID="10500" CATEGORY="1" FIELDNAME="ИД сущности" DATATYPE="java.lang.Long"
+                   SYSNAME="EID"/>
+
+
+
+    <SAD_ATTRIBUTE ID="10611" ENTITYID="10600" CATEGORY="1" FIELDNAME="ИД объекта" DATATYPE="java.lang.Long" IsPrimaryKey="1"
+                   SYSNAME="ID" />
+
+</dataset>

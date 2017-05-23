@@ -1,0 +1,286 @@
+<?xml version="1.0"?>
+<!--
+  ~ Hibernate, Relational Persistence for Idiomatic Java
+  ~
+  ~ License: GNU Lesser General Public License (LGPL), version 2.1 or later.
+  ~ See the lgpl.txt file in the root directory or <http://www.gnu.org/licenses/lgpl-2.1.html>.
+  -->
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+                 version="1.0">
+
+    <named-native-query name="depStructureByID">
+        <query>SELECT
+            DEP_DEPARTMENT.DEPARTMENTID,
+            DEP_DEPARTMENT.PARENTDEPARTMENT,
+            DEP_DEPARTMENT.DEPTLEVEL,
+            DEP_DEPARTMENT.DEPTCODE,
+            DEP_DEPARTMENT.DEPTSHORTNAME,
+            DEP_DEPARTMENT.DEPTFULLNAME,
+            DEP_DEPARTMENT.MANAGER,
+            DEP_DEPARTMENT.PARAM1,
+            DEP_DEPARTMENT.PARAM2,
+            DEP_DEPARTMENT.PARAM3,
+            DEP_DEPTLEVEL.LEVELNAME,
+            DEP_DEPARTMENT.DEPUSELINK,
+            DEP_DEPARTMENT.DEPLINKID,
+            DEP_DEPARTMENT.DEPPHONE,
+            DEP_DEPARTMENT.DEPMAIL,
+            DEP_DEPARTMENT.DEPPARENTTZ,
+            DEP_DEPARTMENT.DEPTZNAME,
+            DEP_DEPARTMENT.DEPTZDIFF,
+            DEP_DEPARTMENT.DEPTZCHANGE,
+            DEP_DEPTLEVEL.LEVELWEIGHT
+            FROM
+            DEP_DEPARTMENT
+            LEFT JOIN DEP_DEPTLEVEL ON DEP_DEPARTMENT.DEPTLEVEL = DEP_DEPTLEVEL.DEPTLEVELID
+            WHERE
+            DEP_DEPARTMENT.DEPARTMENTID = :DEPARTMENTID
+        </query>
+    </named-native-query>
+
+    <named-native-query name="getStructureNodes">
+        <query>
+            SELECT
+            DD.DEPARTMENTID AS NODEID,
+            DD.PARENTDEPARTMENT AS PARENTID,
+            DD.DEPTFULLNAME AS NAME,
+            DD.MANAGER,
+            nvl(DE.LASTNAME, '') || ' ' || nvl(DE.FIRSTNAME, '') || ' ' || nvl(DE.MIDDLENAME, '') AS MANAGERNAME
+            FROM
+            DEP_DEPARTMENT DD
+            LEFT JOIN DEP_EMPLOYEE DE ON DE.EMPLOYEEID = DD.MANAGER
+            WHERE
+            PARENTDEPARTMENT = :PARENTID
+            ORDER BY DD.DEPTFULLNAME
+        </query>
+    </named-native-query>
+
+    <named-native-query name="depLevelByID">
+        <query>
+            SELECT
+            DEP_DEPTLEVEL.DEPTLEVELID,
+            DEP_DEPTLEVEL.LEVELNAME,
+            DEP_DEPTLEVEL.LEVELSYSNAME,
+            DEP_DEPTLEVEL.LEVELWEIGHT,
+            DEP_DEPTLEVEL.DESCRIPTION
+            FROM
+            DEP_DEPTLEVEL
+            WHERE
+            DEP_DEPTLEVEL.DEPTLEVELID = :DEPTLEVELID
+        </query>
+    </named-native-query>
+
+    <named-native-query name="admDepartment">
+        <query><![CDATA[
+            SELECT *
+            FROM
+            DEP_DEPARTMENT
+            WHERE
+            (1 = 1)
+            AND (:PARENTDEPARTMENT IS NULL OR PARENTDEPARTMENT = :PARENTDEPARTMENT)
+            AND (:DEPTLEVEL IS NULL OR DEPTLEVEL = :DEPTLEVEL)
+            AND (:DEPTCODE IS NULL OR DEPTCODE = :DEPTCODE)
+            AND (:DEPTSHORTNAME IS NULL OR DEPTSHORTNAME = :DEPTSHORTNAME)
+            AND (:DEPTFULLNAME IS NULL OR DEPTFULLNAME = :DEPTFULLNAME)
+            AND (:MANAGER IS NULL OR MANAGER = :MANAGER)
+            AND (:PARAM1 IS NULL OR PARAM1 = :PARAM1)
+            AND (:PARAM2 IS NULL OR PARAM2 = :PARAM2)
+            AND (:PARAM3 IS NULL OR PARAM2 = :PARAM3)
+            #chunk($ORDERBY) ORDER BY $ORDERBY #end
+            #chunk($SORTTYPE) $SORTTYPE #end
+            ]]>
+        </query>
+    </named-native-query>
+
+    <named-native-query name="depStructureAdd">
+        <query><![CDATA[
+
+
+            INSERT INTO
+            DEP_DEPARTMENT (
+            DEPARTMENTID,
+            PARENTDEPARTMENT,
+            #chunk($DEPTLEVEL)DEPTLEVEL, #end
+            #chunk($DEPTCODE)DEPTCODE, #end
+            DEPTSHORTNAME,
+            DEPTFULLNAME,
+            #chunk($MANAGER)MANAGER, #end
+            #chunk($DEPUSELINK)DEPUSELINK, #end
+            #chunk($DEPLINKID)DEPLINKID, #end
+            #chunk($DEPPHONE)DEPPHONE, #end
+            #chunk($DEPMAIL)DEPMAIL, #end
+            #chunk($DEPPARENTTZ)DEPPARENTTZ, #end
+            #chunk($DEPTZNAME)DEPTZNAME, #end
+            #chunk($DEPTZDIFF)DEPTZDIFF, #end
+            #chunk($DEPTZCHANGE)DEPTZCHANGE, #end
+            PARAM1,
+            PARAM2,
+            PARAM3)
+            VALUES(
+            :DEPARTMENTID,
+            :PARENTDEPARTMENT,
+            #chunk($DEPTLEVEL)$DEPTLEVEL, #end
+            #chunk($DEPTCODE)$DEPTCODE, #end
+            :DEPTSHORTNAME,
+            :DEPTFULLNAME,
+            #chunk($MANAGER)$MANAGER, #end
+            #chunk($DEPUSELINK)$DEPUSELINK, #end
+            #chunk($DEPLINKID)$DEPLINKID, #end
+            #chunk($DEPPHONE)'$DEPPHONE', #end
+            #chunk($DEPMAIL)'$DEPMAIL', #end
+            #chunk($DEPPARENTTZ)$DEPPARENTTZ, #end
+            #chunk($DEPTZNAME)'$DEPTZNAME', #end
+            #chunk($DEPTZDIFF)$DEPTZDIFF, #end
+            #chunk($DEPTZCHANGE)$DEPTZCHANGE, #end
+            NULL,
+            NULL,
+            NULL)
+
+
+            ]]>
+        </query>
+    </named-native-query>
+
+    <named-native-query name="depParentAdd">
+        <query>
+            INSERT INTO DEP_DEPPARENT
+            (DEPPARENTID, DEPARTMENTID, PARENTDEPARTMENT, RELATIONSHIP)
+            VALUES (:DEPPARENTID, :DEPARTMENTID, :PARENTDEPARTMENT, :RELATIONSHIP)
+        </query>
+    </named-native-query>
+
+    <named-native-query name="depStructureManager">
+        <query>
+            SELECT
+            DEP_DEPARTMENT.DEPARTMENTID,
+            DEP_DEPARTMENT.MANAGER,
+            DEP_EMPLOYEE.LASTNAME || ' ' || DEP_EMPLOYEE.FIRSTNAME || ' ' || DEP_EMPLOYEE.MIDDLENAME AS DEPTMANAGERFIO,
+            DEP_EMPLOYEE.LASTNAME, DEP_EMPLOYEE.FIRSTNAME, DEP_EMPLOYEE.MIDDLENAME
+            FROM
+            DEP_DEPARTMENT,
+            DEP_EMPLOYEE
+            WHERE
+            DEP_DEPARTMENT.MANAGER = DEP_EMPLOYEE.EMPLOYEEID AND
+            DEP_DEPARTMENT.DEPARTMENTID = :DEPARTMENTID
+        </query>
+    </named-native-query>
+
+    <named-native-query name="dsDepartmentFindListChildIDByID">
+        <query>
+            SELECT
+            CD.PARENTDEPARTMENT AS "DepartmentID",
+            CD.DEPARTMENTID AS "ChildID",
+            PL.LEVELWEIGHT AS "DepartmentType"
+            FROM DEP_DEPARTMENT CD
+            LEFT JOIN DEP_DEPARTMENT PD ON PD.DEPARTMENTID = CD.PARENTDEPARTMENT
+            LEFT JOIN DEP_DEPTLEVEL PL ON PD.DEPTLEVEL = PL.DEPTLEVELID
+            WHERE CD.PARENTDEPARTMENT = :DepartmentID
+        </query>
+    </named-native-query>
+
+    <named-native-query name="dsDepartmentChildList">
+        <query>
+            SELECT
+            DEP.DEPARTMENTID,
+            DEP.PARENTDEPARTMENT,
+            DEP.DEPTFULLNAME,
+            DEP.MANAGER,
+            nvl(DE.LASTNAME, '') || ' ' || nvl(DE.FIRSTNAME, '') || ' ' || nvl(DE.MIDDLENAME, '') AS MANAGERNAME
+            FROM
+            DEP_DEPARTMENT DEP
+            LEFT JOIN DEP_EMPLOYEE DE ON DE.EMPLOYEEID = DEP.MANAGER
+            WHERE
+            DEP.PARENTDEPARTMENT = :DEPARTMENTID
+            ORDER BY DEP.DEPTFULLNAME
+        </query>
+    </named-native-query>
+
+    <named-native-query name="depStructureUpdate">
+        <query><![CDATA[
+            UPDATE
+              DEP_DEPARTMENT
+            SET
+            #chain(',')
+              #chunk($DEPTLEVEL)DEPTLEVEL = $DEPTLEVEL #end
+              #chunk($DEPTCODE)DEPTCODE = $DEPTCODE #end
+              #chunk($DEPTSHORTNAME)DEPTSHORTNAME = '$DEPTSHORTNAME' #end
+              #chunk($DEPTFULLNAME)DEPTFULLNAME = '$DEPTFULLNAME' #end
+              #chunk($PARENTDEPARTMENT)PARENTDEPARTMENT = $PARENTDEPARTMENT #end
+              #chunk($DEPUSELINK)DEPUSELINK = $DEPUSELINK #end
+              #chunk($DEPLINKID)DEPLINKID = $DEPLINKID #end
+              #chunk($DEPPHONE)DEPPHONE = '$DEPPHONE' #end
+              #chunk($DEPMAIL)DEPMAIL = '$DEPMAIL' #end
+              #chunk($DEPPARENTTZ)DEPPARENTTZ = $DEPPARENTTZ #end
+              #chunk($DEPTZNAME)DEPTZNAME = '$DEPTZNAME' #end
+              #chunk($DEPTZDIFF)DEPTZDIFF = $DEPTZDIFF #end
+              #chunk($DEPTZCHANGE)DEPTZCHANGE = $DEPTZCHANGE #end
+              #chunk($MANAGER)MANAGER = $MANAGER #end
+            #end
+            WHERE
+              DEP_DEPARTMENT.DEPARTMENTID = :DEPARTMENTID
+            ]]></query>
+    </named-native-query>
+
+    <named-native-query name="loadAddress">
+        <query>
+            SELECT
+            DA.ADDRID,
+            DA.POSTALCODE,
+            DA.FLAT,
+            DA.HOUSE,
+            DA.BUILDING,
+            DA.HOUSING,
+            FL.FULLNAME AS FL_NAME,
+            FL.CODE AS FL_CODE,
+            FL.SHORTNAME AS FL_TYPE,
+            SL.FULLNAME AS SL_NAME,
+            SL.CODE AS SL_CODE,
+            SL.SHORTNAME AS SL_TYPE,
+            TL.FULLNAME AS TL_NAME,
+            TL.CODE AS TL_CODE,
+            TL.SHORTNAME AS TL_TYPE,
+            FOL.FULLNAME AS FOL_NAME,
+            FOL.CODE AS FOL_CODE,
+            FOL.SHORTNAME AS FOL_TYPE,
+            FS.FULLNAME AS FS_NAME,
+            FS.CODE AS FS_CODE,
+            FS.SHORTNAME AS FS_TYPE
+            FROM DEP_ADDRESS DA
+            LEFT JOIN CORE_KLADROBJ FL ON FL.CODE = DA.FIRST_LEVEL
+            LEFT JOIN CORE_KLADROBJ SL ON SL.CODE = DA.SECOND_LEVEL
+            LEFT JOIN CORE_KLADROBJ TL ON TL.CODE = DA.THIRD_LEVEL
+            LEFT JOIN CORE_KLADROBJ FOL ON FOL.CODE = DA.FOURTH_LEVEL
+            LEFT JOIN CORE_KLADRSTREET FS ON FS.CODE = DA.FIFTH_LEVEL
+            WHERE DA.OBJECTID = :OBJECTID AND
+            DA.OBJECTTYPE = :OBJECTTYPE
+        </query>
+    </named-native-query>
+
+    <named-native-query name="removeAddress">
+        <query>
+            DELETE DEP_ADDRESS
+            WHERE ADDRID = :ADDRID
+        </query>
+    </named-native-query>
+    <named-native-query name="saveAddress">
+        <query><![CDATA[
+            INSERT INTO
+                DEP_ADDRESS (ADDRID, OBJECTID, OBJECTTYPE,
+            #chunk ($FIRST_LEVEL) FIRST_LEVEL, #end
+            #chunk($SECOND_LEVEL) SECOND_LEVEL, #end
+            #chunk($THIRD_LEVEL) THIRD_LEVEL, #end
+            #chunk($FOURTH_LEVEL) FOURTH_LEVEL, #end
+            #chunk($FIFTH_LEVEL) FIFTH_LEVEL, #end
+            POSTALCODE, FLAT, HOUSE, BUILDING, HOUSING)
+            VALUES (:ADDRID, :OBJECTID, :OBJECTTYPE,
+            #chunk($FIRST_LEVEL) $FIRST_LEVEL, #end
+            #chunk($SECOND_LEVEL) $SECOND_LEVEL, #end
+            #chunk($THIRD_LEVEL) $THIRD_LEVEL, #end
+            #chunk($FOURTH_LEVEL) $FOURTH_LEVEL, #end
+            #chunk($FIFTH_LEVEL) $FIFTH_LEVEL, #end
+            :POSTALCODE, :FLAT, :HOUSE, :BUILDING, :HOUSING)
+            ]]>
+        </query>
+    </named-native-query>
+
+</entity-mappings>

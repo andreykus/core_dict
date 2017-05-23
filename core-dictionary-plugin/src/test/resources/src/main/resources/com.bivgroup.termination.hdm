@@ -1,0 +1,493 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!-- Generated 26.01.2017 16:11:16 unknow unknow -->
+<hibernate-mapping
+            package="com.bivgroup.termination"
+            default-lazy="false"
+>
+
+<class
+entity-name="TerminationReason"
+table="HD_TerminationReason"
+>
+
+<id
+        name="ID"
+        type="long"
+        >
+
+<column name="ID" />
+        <generator class="enhanced-sequence">
+                <param name="optimizer">pooled</param>
+                <param name="prefer_sequence_per_entity">true</param>
+                <param name="jpa_entity_name">HD_TerminationReason</param>
+                <param name="increment_size">10</param>
+                <param name="sequence_per_entity_suffix">_SEQ</param>
+        </generator>
+</id>
+
+
+
+
+<property
+        name="Sysname"
+        type="string"
+        >
+        <column
+        name="Sysname" />
+</property>
+
+<property
+        name="Name"
+        type="string"
+        >
+        <column
+        name="Name" />
+</property>
+
+<property
+        name="EID"
+        type="long"
+        >
+        <column
+        name="EID" />
+</property>
+
+
+</class>
+<class
+entity-name="ReceivingChannel"
+table="HD_ReceivingChannel"
+>
+
+<id
+        name="ID"
+        type="long"
+        >
+
+<column name="ID" />
+        <generator class="enhanced-sequence">
+                <param name="optimizer">pooled</param>
+                <param name="prefer_sequence_per_entity">true</param>
+                <param name="jpa_entity_name">HD_ReceivingChannel</param>
+                <param name="increment_size">10</param>
+                <param name="sequence_per_entity_suffix">_SEQ</param>
+        </generator>
+</id>
+
+
+
+
+<property
+        name="IsFillDepartureDate"
+        type="integer"
+        >
+        <column
+        name="IsFillDepartureDate" />
+</property>
+
+<property
+        name="EID"
+        type="long"
+        >
+        <column
+        name="EID" />
+</property>
+
+<property
+        name="Name"
+        type="string"
+        >
+        <column
+        name="Name" />
+</property>
+
+<property
+        name="Sysname"
+        type="string"
+        >
+        <column
+        name="Sysname" />
+</property>
+
+
+</class>
+<class
+entity-name="DeclarationForContract"
+table="PD_Declaration"
+>
+
+<id
+        name="ID"
+        type="long"
+        >
+
+<column name="ID" />
+        <generator class="enhanced-sequence">
+                <param name="optimizer">pooled</param>
+                <param name="prefer_sequence_per_entity">true</param>
+                <param name="jpa_entity_name">PD_Declaration</param>
+                <param name="increment_size">10</param>
+                <param name="sequence_per_entity_suffix">_SEQ</param>
+        </generator>
+</id>
+
+<discriminator type="string">
+        <column
+        name="DISCRIMINATOR" />
+</discriminator>
+
+
+
+<property
+        name="TypeRecipient"
+        type="integer"
+        >
+        <column
+        name="TypeRecipient" />
+</property>
+
+<property
+        name="CreateDate"
+        type="timestamp"
+        >
+        <column
+        name="CreateDate" />
+</property>
+
+<property
+        name="EID"
+        type="long"
+        >
+        <column
+        name="EID" />
+</property>
+
+<property
+        name="DateOfEntry"
+        type="timestamp"
+        >
+        <column
+        name="DateOfEntry" />
+</property>
+
+<property
+        name="ChangePremValue"
+        type="float"
+        >
+        <column
+        name="ChangePremValue" />
+</property>
+
+<property
+        name="ReceivingDate"
+        type="timestamp"
+        >
+        <column
+        name="ReceivingDate" />
+</property>
+
+<property
+        name="IncomingDate"
+        type="timestamp"
+        >
+        <column
+        name="IncomingDate" />
+</property>
+
+<property
+        name="IncomingNumber"
+        type="string"
+        >
+        <column
+        name="IncomingNumber" />
+</property>
+
+<property
+        name="DepartureDate"
+        type="timestamp"
+        >
+        <column
+        name="DepartureDate" />
+</property>
+
+<property
+        name="SupposedDateOfEntry"
+        type="timestamp"
+        >
+        <column
+        name="SupposedDateOfEntry" />
+</property>
+
+<property
+        name="Initiator"
+        type="integer"
+        >
+        <column
+        name="Initiator" />
+</property>
+
+<property
+        name="DeclarationDate"
+        type="timestamp"
+        >
+        <column
+        name="DeclarationDate" />
+</property>
+
+<property
+        name="DeclarationNumber"
+        type="string"
+        >
+        <column
+        name="DeclarationNumber" />
+</property>
+
+<property
+        name="ContractID"
+        type="long"
+        >
+        <column
+        name="ContractID" />
+</property>
+
+<property
+        name="DateLastDoc"
+        type="timestamp"
+        >
+        <column
+        name="DateLastDoc" />
+</property>
+
+<property
+        name="UpdateUser"
+        type="long"
+        >
+        <column
+        name="UpdateUser" />
+</property>
+
+<property
+        name="UpdateDate"
+        type="timestamp"
+        >
+        <column
+        name="UpdateDate" />
+</property>
+
+<property
+        name="CreateUser"
+        type="long"
+        >
+        <column
+        name="CreateUser" />
+</property>
+
+<many-to-one
+        name="StateID_EN"
+			entity-name="KindStatus"
+        >
+        <column
+        name="StateID" />
+</many-to-one>
+<property
+        name="StateID"
+        type="long"
+        update="false"
+        insert="false"
+        >
+</property>
+
+<many-to-one
+        name="ReceivingChannelID_EN"
+			entity-name="ReceivingChannel"
+        >
+        <column
+        name="ReceivingChannelID" />
+</many-to-one>
+<property
+        name="ReceivingChannelID"
+        type="long"
+        update="false"
+        insert="false"
+        >
+</property>
+
+<many-to-one
+        name="RecipientID_EN"
+			entity-name="PPerson"
+        >
+        <column
+        name="RecipientID" />
+</many-to-one>
+<property
+        name="RecipientID"
+        type="long"
+        update="false"
+        insert="false"
+        >
+</property>
+
+<many-to-one
+        name="ApplicantID_EN"
+			entity-name="PPerson"
+        >
+        <column
+        name="ApplicantID" />
+</many-to-one>
+<property
+        name="ApplicantID"
+        type="long"
+        update="false"
+        insert="false"
+        >
+</property>
+
+<many-to-one
+        name="RepresentativeID_EN"
+			entity-name="PClient_VER"
+        >
+        <column
+        name="RepresentativeID" />
+</many-to-one>
+<property
+        name="RepresentativeID"
+        type="long"
+        update="false"
+        insert="false"
+        >
+</property>
+
+
+<bag name="Notes"
+table="SD_UserPost"
+     inverse="true"
+     lazy="false"
+     cascade="delete"
+>
+<key
+>
+        <column
+        name="PDDeclarationID" />
+</key>
+<one-to-many class="com.bivgroup.termination.UserPost"
+             entity-name="UserPost"
+/>
+</bag>
+</class>
+<class
+entity-name="UserPost"
+table="SD_UserPost"
+>
+
+<id
+        name="ID"
+        type="long"
+        >
+
+<column name="ID" />
+        <generator class="enhanced-sequence">
+                <param name="optimizer">pooled</param>
+                <param name="prefer_sequence_per_entity">true</param>
+                <param name="jpa_entity_name">SD_UserPost</param>
+                <param name="increment_size">10</param>
+                <param name="sequence_per_entity_suffix">_SEQ</param>
+        </generator>
+</id>
+
+
+
+
+<property
+        name="CHNotificationID"
+        type="long"
+        >
+        <column
+        name="CHNotificationID" />
+</property>
+
+<property
+        name="Note"
+        type="string"
+        >
+        <column
+        name="Note" />
+</property>
+
+<property
+        name="CreateUser"
+        type="long"
+        >
+        <column
+        name="CreateUser" />
+</property>
+
+<property
+        name="CreateDate"
+        type="timestamp"
+        >
+        <column
+        name="CreateDate" />
+</property>
+
+<property
+        name="EID"
+        type="long"
+        >
+        <column
+        name="EID" />
+</property>
+
+<many-to-one
+        name="PDDeclarationID_EN"
+			entity-name="DeclarationForContract"
+        >
+        <column
+        name="PDDeclarationID" />
+</many-to-one>
+<property
+        name="PDDeclarationID"
+        type="long"
+        update="false"
+        insert="false"
+        >
+</property>
+
+
+</class>
+<joined-subclass
+entity-name="DeclarationOfAvoidanceForContract"
+extends="DeclarationForContract"
+table="PD_DeclarationOfAvoid"
+>
+
+<key>
+        <column
+        name="ID" not-null="true" />
+</key>
+
+
+
+
+<many-to-one
+        name="TerminationReasonID_EN"
+			entity-name="TerminationReason"
+        >
+        <column
+        name="TerminationReasonID" />
+</many-to-one>
+<property
+        name="TerminationReasonID"
+        type="long"
+        update="false"
+        insert="false"
+        >
+</property>
+
+
+</joined-subclass>
+
+</hibernate-mapping>

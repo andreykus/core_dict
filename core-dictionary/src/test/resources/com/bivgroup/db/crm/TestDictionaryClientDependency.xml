@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dataset>
+    <!--  Клиент(физическое лицо) версия -->
+    <SAD_ENTITY ID="10400" ISMETAENTITY="1" NAME="Клиент(физическое лицо)" TABLENAME="CDM_PClient" NOTE="Клиент(физическое лицо)" SYSNAME="PClient" PARENTID="10300" MODULEID="10010"/>
+    <!--PARENTID="10400"-->
+    <SAD_ENTITY ID="100500" ISMETAENTITY="1" NAME="Клиент(физическое лицо) - версия" TABLENAME="CDM_PClient_VER" NOTE="Клиент(физическое лицо) - версия" SYSNAME="PClient_VER" MODULEID="10010"/>
+        <!--  Страна регистрации ссылается на Классификатор  стран -->
+    <SAD_ATTRIBUTE ID="100513" ENTITYID="100500" CATEGORY="2" FIELDNAME="Страна регистрации" DATATYPE="java.lang.Long"
+                   SYSNAME="CountryID" REFENTITYID="11300" REFATTRIBUTEID="11311" IsPrimaryKey="0" ASPECTID="1002" ISVERSIONT="0"/>
+
+    <SAD_ATTRIBUTE ID="100511" ENTITYID="100500" CATEGORY="1" FIELDNAME="ИД версии" DATATYPE="java.lang.Long"
+                   SYSNAME="VerID" IsPrimaryKey="1" ISVERSIONT="0"/>
+    <SAD_ATTRIBUTE ID="100512" ENTITYID="100500" CATEGORY="1" FIELDNAME="Номер версии" DATATYPE="java.lang.Long"
+                   SYSNAME="VerNumber" ASPECTID="1002" ISVERSIONT="0"/>
+    <SAD_ATTRIBUTE ID="100514" ENTITYID="100500" CATEGORY="1" FIELDNAME="Дата версии" DATATYPE="java.sql.Timestamp"
+                   SYSNAME="VerDate" ASPECTID="1002" ISVERSIONT="0"/>
+
+    <SAD_ATTRIBUTE ID="100515" ENTITYID="100500" CATEGORY="1" FIELDNAME="Фамилия" DATATYPE="java.lang.String"
+                   SYSNAME="Surname" ASPECTID="1002" ISVERSIONT="1"/>
+    <SAD_ATTRIBUTE ID="100516" ENTITYID="100500" CATEGORY="1" FIELDNAME="Фамилия на английском" DATATYPE="java.lang.String"
+                   SYSNAME="Surname2" ASPECTID="1002" ISVERSIONT="1"/>
+    <SAD_ATTRIBUTE ID="100517" ENTITYID="100500" CATEGORY="1" FIELDNAME="Имя" DATATYPE="java.lang.String"
+                   SYSNAME="Name" ASPECTID="1002" ISVERSIONT="1"/>
+    <SAD_ATTRIBUTE ID="100518" ENTITYID="100500" CATEGORY="1" FIELDNAME="Имя на английском" DATATYPE="java.lang.String"
+                   SYSNAME="Name2" ASPECTID="1002" ISVERSIONT="1"/>
+    <SAD_ATTRIBUTE ID="100519" ENTITYID="100500" CATEGORY="1" FIELDNAME="Отчество" DATATYPE="java.lang.String"
+                   SYSNAME="Patronymic" ASPECTID="1002" ISVERSIONT="1"/>
+    <SAD_ATTRIBUTE ID="100520" ENTITYID="100500" CATEGORY="1" FIELDNAME="Отчество на английском" DATATYPE="java.lang.String"
+                   SYSNAME="Patronymic2" ASPECTID="1002" ISVERSIONT="1"/>
+    <SAD_ATTRIBUTE ID="100521" ENTITYID="100500" CATEGORY="1" FIELDNAME="Признак отчество отсутствует" DATATYPE="java.lang.Integer"
+                   SYSNAME="IsEmptyPatronymic"  ASPECTID="1002" ISVERSIONT="1"/>
+    <SAD_ATTRIBUTE ID="100522" ENTITYID="100500" CATEGORY="1" FIELDNAME="Дата рождения" DATATYPE="java.util.Date"
+                   SYSNAME="DateOfBirth" ASPECTID="1002" ISVERSIONT="1"/>
+    <SAD_ATTRIBUTE ID="100523" ENTITYID="100500" CATEGORY="1" FIELDNAME="Место рождения" DATATYPE="java.lang.String"
+                   SYSNAME="PlaceOfBirth" ASPECTID="1002" ISVERSIONT="1"/>
+    <SAD_ATTRIBUTE ID="100524" ENTITYID="100500" CATEGORY="1" FIELDNAME="Пол" DATATYPE="java.lang.Integer"
+                   SYSNAME="Sex" ASPECTID="1002" ISVERSIONT="1"/>
+    <SAD_ATTRIBUTE ID="100525" ENTITYID="100500" CATEGORY="1" FIELDNAME="ИНН" DATATYPE="java.lang.String"
+                   SYSNAME="INN" ASPECTID="1002" ISVERSIONT="1"/>
+    <SAD_ATTRIBUTE ID="100526" ENTITYID="100500" CATEGORY="1" FIELDNAME="Признак 'Состоит в браке'" DATATYPE="java.lang.Integer"
+                   SYSNAME="IsMarried" ASPECTID="1002" ISVERSIONT="1"/>
+
+    <!--  Клиент(физическое лицо) -->
+    <SAD_ATTRIBUTE ID="10411" ENTITYID="10400" CATEGORY="1" FIELDNAME="ИД объекта" DATATYPE="java.lang.Long" IsPrimaryKey="1"
+                   SYSNAME="ID" />
+    <SAD_ATTRIBUTE ID="10412" ENTITYID="10400" CATEGORY="1" FIELDNAME="Блокировка версии" DATATYPE="java.lang.Long"
+                   SYSNAME="VerLock" />
+    <SAD_ATTRIBUTE ID="10413" ENTITYID="10400" CATEGORY="2" FIELDNAME="ИД последней  версии" DATATYPE="java.lang.Long"
+                   SYSNAME="VerLastID" REFENTITYID="100500" REFATTRIBUTEID="100511" />
+
+
+    <!--  Клиент(юридическое лицо) версия -->
+    <SAD_ENTITY ID="10405" ISMETAENTITY="1" NAME="Клиент(юридическое лицо)" TABLENAME="CDM_JClient" NOTE="Клиент(юридическое лицо)" SYSNAME="JClient" PARENTID="10300" MODULEID="10010"/>
+    <SAD_ENTITY ID="100300" ISMETAENTITY="1" NAME="Клиент(юридическое лицо) - версия" TABLENAME="CDM_JClient_VER" NOTE="Клиент(юридическое лицо) - версия" SYSNAME="JClient_VER" PARENTID="10405" MODULEID="10010"/>
+
+    <SAD_ATTRIBUTE ID="100311" ENTITYID="100300" CATEGORY="1" FIELDNAME="ИД версии" DATATYPE="java.lang.Long"
+                   SYSNAME="VerID" IsPrimaryKey="1" />
+    <SAD_ATTRIBUTE ID="100312" ENTITYID="100300" CATEGORY="1" FIELDNAME="Номер версии" DATATYPE="java.lang.Long"
+                   SYSNAME="VerNumber" />
+    <SAD_ATTRIBUTE ID="100313" ENTITYID="100300" CATEGORY="1" FIELDNAME="Дата версии" DATATYPE="java.sql.Timestamp"
+                   SYSNAME="VerDate" />
+         <!-- Страна регистрации на классификатор страны регистрации-->
+    <SAD_ATTRIBUTE ID="100314" ENTITYID="100300" CATEGORY="2" FIELDNAME="Страна регистрации" DATATYPE="java.lang.Long"
+                   SYSNAME="CountryID"  REFENTITYID="11300" REFATTRIBUTEID="11311" />
+        <!-- Организационно-правовая форма на классификатор Организационно-правовая форма -->
+    <SAD_ATTRIBUTE ID="100315" ENTITYID="100300" CATEGORY="2" FIELDNAME="Организационно-правовая форма" DATATYPE="java.lang.Long"
+                   SYSNAME="LegalFormsOfBusinessID"  REFENTITYID="100100" REFATTRIBUTEID="100111"/>
+    <SAD_ATTRIBUTE ID="100316" ENTITYID="100300" CATEGORY="1" FIELDNAME="Наименование" DATATYPE="java.lang.String"
+                   SYSNAME="Name" />
+    <SAD_ATTRIBUTE ID="100317" ENTITYID="100300" CATEGORY="1" FIELDNAME="Полное наименование организации на английском" DATATYPE="java.lang.String"
+                   SYSNAME="Name2" />
+    <SAD_ATTRIBUTE ID="100318" ENTITYID="100300" CATEGORY="1" FIELDNAME="ИНН" DATATYPE="java.lang.String"
+                   SYSNAME="INN" />
+    <SAD_ATTRIBUTE ID="100319" ENTITYID="100300" CATEGORY="1" FIELDNAME="КПП" DATATYPE="java.lang.String"
+                   SYSNAME="KPP" />
+    <SAD_ATTRIBUTE ID="100320" ENTITYID="100300" CATEGORY="1" FIELDNAME="ОГРН" DATATYPE="java.lang.String"
+                   SYSNAME="OGRN" />
+
+
+    <!--  Клиент(юридическое лицо) -->
+    <SAD_ATTRIBUTE ID="10451" ENTITYID="10405" CATEGORY="1" FIELDNAME="ИД объекта" DATATYPE="java.lang.Long" IsPrimaryKey="1"
+                   SYSNAME="ID" />
+    <SAD_ATTRIBUTE ID="10452" ENTITYID="10405" CATEGORY="1" FIELDNAME="Блокировка версии" DATATYPE="java.lang.Long"
+                   SYSNAME="VerLock" />
+    <SAD_ATTRIBUTE ID="10453" ENTITYID="10405" CATEGORY="2" FIELDNAME="ИД последней  версии" DATATYPE="java.lang.Long"
+                   SYSNAME="VerLastID" REFENTITYID="100300" REFATTRIBUTEID="100311" />
+
+
+    <!--  Клиент(индивидуальный предприниматель)  версия -->
+    <SAD_ENTITY ID="10410" ISMETAENTITY="1" NAME="Клиент(индивидуальный предприниматель)" TABLENAME="CDM_EClient" NOTE="Клиент(индивидуальный предприниматель)" SYSNAME="EClient" PARENTID="10300" MODULEID="10010"/>
+    <SAD_ENTITY ID="100400" ISMETAENTITY="1" NAME="Клиент(индивидуальный предприниматель) - версия" TABLENAME="CDM_EClient_VER" NOTE="Клиент(индивидуальный предприниматель) - версия" SYSNAME="EClient_VER" PARENTID="10410" MODULEID="10010"/>
+
+    <SAD_ATTRIBUTE ID="100411" ENTITYID="100400" CATEGORY="1" FIELDNAME="ИД версии" DATATYPE="java.lang.Long"
+                   SYSNAME="VerID" IsPrimaryKey="1" />
+    <SAD_ATTRIBUTE ID="100412" ENTITYID="100400" CATEGORY="1" FIELDNAME="Номер версии" DATATYPE="java.lang.Long"
+                   SYSNAME="VerNumber" />
+    <SAD_ATTRIBUTE ID="100413" ENTITYID="100400" CATEGORY="1" FIELDNAME="Дата версии" DATATYPE="java.sql.Timestamp"
+                   SYSNAME="VerDate" />
+         <!-- Страна регистрации на классификатор страны регистрации-->
+    <SAD_ATTRIBUTE ID="100414" ENTITYID="100400" CATEGORY="2" FIELDNAME="Страна регистрации" DATATYPE="java.lang.Long"
+                   SYSNAME="CountryID"  REFENTITYID="11300" REFATTRIBUTEID="11311" />
+        <!-- Организационно-правовая форма на классификатор Организационно-правовая форма -->
+    <SAD_ATTRIBUTE ID="100415" ENTITYID="100400" CATEGORY="2" FIELDNAME="Организационно-правовая форма" DATATYPE="java.lang.Long"
+                   SYSNAME="LegalFormsOfBusinessID"  REFENTITYID="100100" REFATTRIBUTEID="100111"/>
+    <SAD_ATTRIBUTE ID="100416" ENTITYID="100400" CATEGORY="1" FIELDNAME="Фамилия" DATATYPE="java.lang.String"
+                   SYSNAME="Surname" />
+    <SAD_ATTRIBUTE ID="100417" ENTITYID="100400" CATEGORY="1" FIELDNAME="Имя" DATATYPE="java.lang.String"
+                   SYSNAME="Name" />
+    <SAD_ATTRIBUTE ID="100418" ENTITYID="100400" CATEGORY="1" FIELDNAME="Отчество" DATATYPE="java.lang.String"
+                   SYSNAME="Patronymic" />
+    <SAD_ATTRIBUTE ID="100419" ENTITYID="100400" CATEGORY="1" FIELDNAME="Признак 'Отчество отсутствует'" DATATYPE="java.lang.Integer"
+                   SYSNAME="IsEmptyPatronymic" />
+    <SAD_ATTRIBUTE ID="100420" ENTITYID="100400" CATEGORY="1" FIELDNAME="Дата рождения" DATATYPE="java.util.Date"
+                   SYSNAME="DateOfBirth" />
+    <SAD_ATTRIBUTE ID="100423" ENTITYID="100400" CATEGORY="1" FIELDNAME="Место рождения" DATATYPE="java.lang.String"
+                   SYSNAME="PlaceOfBirth" />
+    <SAD_ATTRIBUTE ID="100424" ENTITYID="100400" CATEGORY="1" FIELDNAME="Пол" DATATYPE="java.lang.Long"
+                   SYSNAME="Sex" />
+    <SAD_ATTRIBUTE ID="100425" ENTITYID="100400" CATEGORY="1" FIELDNAME="ИНН" DATATYPE="java.lang.String"
+                   SYSNAME="INN" />
+    <SAD_ATTRIBUTE ID="100426" ENTITYID="100400" CATEGORY="1" FIELDNAME="ОГРНИП" DATATYPE="java.lang.String"
+                   SYSNAME="OGRNIP" />
+
+    <!--  Клиент(индивидуальный предприниматель) -->
+    <SAD_ATTRIBUTE ID="10481" ENTITYID="10410" CATEGORY="1" FIELDNAME="ИД объекта" DATATYPE="java.lang.Long" IsPrimaryKey="1"
+                   SYSNAME="ID"/>
+    <SAD_ATTRIBUTE ID="10482" ENTITYID="10410" CATEGORY="1" FIELDNAME="Блокировка версии" DATATYPE="java.lang.Long"
+                   SYSNAME="VerLock" />
+    <SAD_ATTRIBUTE ID="10483" ENTITYID="10410" CATEGORY="2" FIELDNAME="ИД последней  версии" DATATYPE="java.lang.Long"
+                   SYSNAME="VerLastID" REFENTITYID="100400" REFATTRIBUTEID="100411" />
+
+</dataset>

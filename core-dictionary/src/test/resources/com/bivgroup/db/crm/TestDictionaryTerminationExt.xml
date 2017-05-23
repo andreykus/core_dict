@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dataset>
+    <!--      Заявление на расторжение договора страхования -->
+    <SAD_ENTITY ID="102121" ISMETAENTITY="1" NAME="Заявление на расторжение договора страхования" TABLENAME="PD_DeclarationOfAvoid" NOTE="Заявление на расторжение договора страхования" SYSNAME="DeclarationOfAvoidanceForContract" MODULEID="10110" PARENTID="102100"/>
+
+    <SAD_ATTRIBUTE ID="102407" ENTITYID="102110" CATEGORY="2" FIELDNAME="Заявление по договору страхования"
+                   DATATYPE="java.lang.Long" IsPrimaryKey="0"
+                   SYSNAME="PDDeclarationID" MODULEID="10110" REFENTITYID="102100" REFATTRIBUTEID="102301"/>
+
+    <SAD_ATTRIBUTE ID="102319" ENTITYID="102100" CATEGORY="2" FIELDNAME="Канал приема" DATATYPE="java.lang.Long"
+                   IsPrimaryKey="0"
+                   SYSNAME="ReceivingChannelID" MODULEID="10110" REFENTITYID="102090" REFATTRIBUTEID="102291"/>
+
+    <SAD_ATTRIBUTE ID="102320" ENTITYID="102100" CATEGORY="2" FIELDNAME="Состояние" DATATYPE="java.lang.Long"
+                   IsPrimaryKey="0"
+                   SYSNAME="StateID" MODULEID="10110" REFENTITYID="11200" REFATTRIBUTEID="11211"/>
+
+    <SAD_ATTRIBUTE ID="102321" ENTITYID="102100" CATEGORY="2" FIELDNAME="Заявитель" DATATYPE="java.lang.Long"
+                   IsPrimaryKey="0"
+                   SYSNAME="ApplicantID" MODULEID="10110" REFENTITYID="10600" REFATTRIBUTEID="10611"/>
+
+    <SAD_ATTRIBUTE ID="102322" ENTITYID="102100" CATEGORY="2" FIELDNAME="Представитель заявителя" DATATYPE="java.lang.Long"
+                   IsPrimaryKey="0"
+                   SYSNAME="RepresentativeID" MODULEID="10110" REFENTITYID="10600" REFATTRIBUTEID="10611"/>
+
+    <SAD_ATTRIBUTE ID="102323" ENTITYID="102100" CATEGORY="2" FIELDNAME="Получатель выплаты" DATATYPE="java.lang.Long"
+                   IsPrimaryKey="0"
+                   SYSNAME="RecipientID" MODULEID="10110" REFENTITYID="10600" REFATTRIBUTEID="10611"/>
+
+    <SAD_ATTRIBUTE ID="102324" ENTITYID="102100" CATEGORY="3" FIELDNAME="Заметки" DATATYPE="java.lang.Long" IsPrimaryKey="0"
+                   SYSNAME="Notes" MODULEID="10110" REFENTITYID="102110" REFATTRIBUTEID="102407"/>
+
+
+    <SAD_ATTRIBUTE ID="102489" ENTITYID="102121" CATEGORY="2" FIELDNAME="Основание расторжения" DATATYPE="java.lang.Long" IsPrimaryKey="0"
+                   SYSNAME="TerminationReasonID" MODULEID="10110" REFENTITYID="102080" REFATTRIBUTEID="102281"/>
+
+    <SAD_ATTRIBUTE ID="102491" ENTITYID="102121" CATEGORY="1" FIELDNAME="ИД объекта" DATATYPE="java.lang.Long" IsPrimaryKey="1" SYSNAME="ID" MODULEID="10110"/>
+
+
+</dataset>

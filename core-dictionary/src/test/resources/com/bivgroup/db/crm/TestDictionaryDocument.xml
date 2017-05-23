@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dataset>
+    <!--  Документ -->
+    <SAD_ENTITY ID="11600" ISMETAENTITY="1" NAME="Документ" TABLENAME="SD_Document" NOTE="Документ" SYSNAME="Document" MODULEID="10010"/>
+        <!--  Тип документа на Классификатор типов документов -->
+    <SAD_ATTRIBUTE ID="11613" ENTITYID="11600" CATEGORY="2" FIELDNAME="Тип документа" DATATYPE="java.lang.Long"
+                   SYSNAME="TypeID" REFENTITYID="11400" REFATTRIBUTEID="11411" IsPrimaryKey="0" ASPECTID="1001" ISVERSIONT="1"/>
+    <SAD_ATTRIBUTE ID="11611" ENTITYID="11600" CATEGORY="1" FIELDNAME="ИД объекта" DATATYPE="java.lang.Long" IsPrimaryKey="1"
+                   SYSNAME="ID"/>
+    <SAD_ATTRIBUTE ID="11612" ENTITYID="11600" CATEGORY="1" FIELDNAME="ИД сущности" DATATYPE="java.lang.Long"
+                   SYSNAME="EID"/>
+    <SAD_ATTRIBUTE ID="11614" ENTITYID="11600" CATEGORY="1" FIELDNAME="Серия" DATATYPE="java.lang.String"
+                   SYSNAME="Series"/>
+    <SAD_ATTRIBUTE ID="11615" ENTITYID="11600" CATEGORY="1" FIELDNAME="Номер" DATATYPE="java.lang.String"
+                   SYSNAME="No"/>
+    <SAD_ATTRIBUTE ID="11616" ENTITYID="11600" CATEGORY="1" FIELDNAME="Дата выдачи" DATATYPE="java.util.Date"
+                   SYSNAME="DateOfIssue"/>
+    <SAD_ATTRIBUTE ID="11617" ENTITYID="11600" CATEGORY="1" FIELDNAME="Кем выдан" DATATYPE="java.lang.String"
+                   SYSNAME="Authority"/>
+    <SAD_ATTRIBUTE ID="11618" ENTITYID="11600" CATEGORY="1" FIELDNAME="Код подразделения" DATATYPE="java.lang.String"
+                   SYSNAME="IssuerCode"/>
+    <SAD_ATTRIBUTE ID="11620" ENTITYID="11600" CATEGORY="1" FIELDNAME="Дата окончания срока действия" DATATYPE="java.util.Date"
+                   SYSNAME="DateOfExpiry"/>
+
+</dataset>

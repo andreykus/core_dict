@@ -1,0 +1,3 @@
+
+
+mvn com.bivgroup:core-dictionary-maven-plugin:buildmodule

@@ -1,0 +1,14 @@
+package ${packageName};
+
+import javax.ingect.inject
+/**
+ * Generate by core-dictionary-plugin for module ${className}
+ */
+
+@Stateless
+@WorkBD
+public class ${className} {
+    @Inject
+    private Session session;
+
+}

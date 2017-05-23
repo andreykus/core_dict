@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dataset>
+
+    <SAD_ENTITY ID="1001" ISMETAENTITY="1" NAME="test" TABLENAME="test" NOTE="NAME 1001" SYSNAME="test"/>
+    <SAD_ATTRIBUTE ID="1001" ENTITYID="1001" CATEGORY="1" FIELDNAME="ID" DATATYPE="java.lang.Long" IsPrimaryKey="1"
+                   SYSNAME="ID" REFATTRIBUTEID="1001" REFENTITYID="1001"/>
+    <SAD_ATTRIBUTE ID="1002" ENTITYID="1001" CATEGORY="1" FIELDNAME="NAME" DATATYPE="java.lang.String" SYSNAME="NAME"/>
+    <SAD_ATTRIBUTE ID="1003" ENTITYID="1001" CATEGORY="1" FIELDNAME="EN_ID" DATATYPE="java.lang.Long" SYSNAME="EN_ID"/>
+
+    <!--<SAD_ENTITY_SAD_ATTRIBUTE SadEntity_ID="1001" attributes_ID="1001"/>-->
+    <!--<SAD_ENTITY_SAD_ATTRIBUTE SadEntity_ID="1001" attributes_ID="1002"/>-->
+
+</dataset>

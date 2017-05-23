@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dataset>
+
+
+    <!--&lt;!&ndash; Аспект для CRM&ndash;&gt;-->
+    <!--<SAD_ASPECT ID="1001" NAME="Аспект бинарный файл" SYSNAME="BinaryFile" NOTE="Аспект бинарный файл" MODULEID="10010"/>-->
+
+    <!-- Аспект на сущности для CRM  -->
+ <!-- -->
+    <!--<SAD_ENTITY_ASPECT ID="100" CONFIG="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>&lt;aspectCfg xmlns:ns2=&quot;http://bivgroup.aspect.com/&quot;>&lt;ns2:name>sdfsd&lt;/ns2:name>&lt;ns2:aspect xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:type=&quot;ns2:BinaryFile&quot;>&lt;ns2:objTableName>ddd&lt;/ns2:objTableName>&lt;ns2:objTablePKFieldName>fdsfdf&lt;/ns2:objTablePKFieldName>&lt;/ns2:aspect>&lt;/aspectCfg>" ASPECTID="1001" ENTITYID="11600"/>-->
+ <!-- -->
+    <!-- Аспект на сущности для CRM  version-->
+    <SAD_ENTITY_ASPECT ID="101" CONFIG="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?>&lt;Aspects xmlns=&quot;http://bivgroup.aspect.com/&quot;>&lt;aspectsOnModule>&lt;nameModule>com.bivgroup.crm&lt;/nameModule>&lt;aspectsOnEntity>&lt;EntityName>PClient&lt;/EntityName>&lt;aspectCfg>&lt;name>VersionAspect&lt;/name>&lt;aspect xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:type=&quot;VersionAspect&quot;>&lt;versionEntityName>PClient_VER&lt;/versionEntityName>&lt;versionEntityIdFieldName>VerID&lt;/versionEntityIdFieldName>&lt;versionEntityNumberFieldName>VerNumber&lt;/versionEntityNumberFieldName>&lt;lockVersionFieldName>VerLock&lt;/lockVersionFieldName>&lt;lastVersionIdFieldName>VerLastID&lt;/lastVersionIdFieldName>&lt;lastVersionTimeFieldName>VerDate&lt;/lastVersionTimeFieldName>&lt;versionNumberParamName>VerLock&lt;/versionNumberParamName>&lt;/aspect>&lt;/aspectCfg>&lt;/aspectsOnEntity>&lt;/aspectsOnModule>&lt;/Aspects>" ASPECTID="1002" ENTITYID="10400"/>
+
+    <!--  <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+     <aspectCfg xmlns:ns2="http://bivgroup.aspect.com/">
+         <ns2:name>sdfsd</ns2:name>
+         <ns2:aspect xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:BinaryFile">
+             <ns2:objTableName>ddd</ns2:objTableName>
+             <ns2:objTablePKFieldName>fdsfdf</ns2:objTablePKFieldName>
+         </ns2:aspect>
+     </aspectCfg>
+     -->
+
+ </dataset>

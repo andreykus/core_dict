@@ -1,0 +1,24 @@
+package ${packageName};
+
+import javax.enterprise.inject.Default;
+import javax.enterprise.inject.Dispose;
+import javax.enterprise.inject.Producer;
+import javax.persistence.PersistenceContext;
+
+/**
+* Generate by core-dictionary-plugin for module ${className}
+*/
+public class ModuleProducer {
+
+    @Produces
+    @WorkDB
+    @PersistenceContext(unitName = "${unitName}")
+    private Session session;
+
+    public void dispose(@Disposes @Default Session session){
+        if(session.isOpen()){
+            session.close();
+        }
+    }
+
+}

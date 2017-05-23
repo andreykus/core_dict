@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dataset>
+    <!-- Контакт клиента -->
+    <SAD_ENTITY ID="11000" ISMETAENTITY="1" NAME="Контакт клиента" TABLENAME="CDM_Client_Contact" NOTE="Контакт клиента" SYSNAME="ClientContact" PARENTID="10800" MODULEID="10010"/>
+    <!-- Контакт контрагента -->
+    <SAD_ENTITY ID="11100" ISMETAENTITY="1" NAME="Контакт контрагента" TABLENAME="CDM_Person_Contact" NOTE="Контакт контрагента" SYSNAME="PersonContact" PARENTID="10800" MODULEID="10010"/>
+    <!--  Контрагент -->
+    <SAD_ENTITY ID="10500" ISMETAENTITY="1" NAME="Контрагент" TABLENAME="CDM_Person" NOTE="Контрагент" SYSNAME="Person" MODULEID="10010"/>
+    <!--  Документ клиента -->
+    <SAD_ENTITY ID="11700" ISMETAENTITY="1" NAME="Документ клиента" TABLENAME="CDM_Client_Document" NOTE="Документ клиента" SYSNAME="ClientDocument" PARENTID="11600" MODULEID="10010"/>
+    <!--  Документ контрагента -->
+    <SAD_ENTITY ID="11800" ISMETAENTITY="1" NAME="Документ контрагента" TABLENAME="CDM_Person_Document" NOTE="Документ контрагента" SYSNAME="PersonDocument" PARENTID="11600" MODULEID="10010"/>
+    <!-- Адрес клиента -->
+    <SAD_ENTITY ID="12000" ISMETAENTITY="1" NAME="Адрес клиента" TABLENAME="CDM_Client_Address" NOTE="Адрес клиента" SYSNAME="ClientAddress" PARENTID="11900" MODULEID="10010"/>
+    <!-- Адрес контрагента -->
+    <SAD_ENTITY ID="12100" ISMETAENTITY="1" NAME="Адрес контрагента" TABLENAME="CDM_Person_Address" NOTE="Адрес контрагента" SYSNAME="PersonAddress" PARENTID="11900" MODULEID="10010"/>
+
+
+</dataset>

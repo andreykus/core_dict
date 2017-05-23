@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.bivgroup.meweb.front.core:mewebcaller:01.01.01">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/bivgroup/meweb/front/core/mewebcaller/01.01.01/mewebcaller-01.01.01.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/bivgroup/meweb/front/core/mewebcaller/01.01.01/mewebcaller-01.01.01-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/bivgroup/meweb/front/core/mewebcaller/01.01.01/mewebcaller-01.01.01-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

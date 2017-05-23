@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dataset>
+    <!--  Индивидуальный предприниматель -->
+    <SAD_ENTITY ID="100600" ISMETAENTITY="1" NAME="Индивидуальный предприниматель" TABLENAME="CDM_EPerson" NOTE="Индивидуальный предприниматель" SYSNAME="EPerson" PARENTID="10500" MODULEID="10010"/>
+
+    <!-- Первое лицо на физическое лицо -->
+    <SAD_ATTRIBUTE ID="100322" ENTITYID="100300" CATEGORY="2" FIELDNAME="Первое лицо" DATATYPE="java.lang.Long" IsPrimaryKey="0"
+                   SYSNAME="FirstPersonID" REFENTITYID="10600" REFATTRIBUTEID="10611" />
+
+        <!--  Дети Контрагента на Контрагента-->
+    <SAD_ATTRIBUTE ID="100213" ENTITYID="100200" CATEGORY="2" FIELDNAME="Контрагент" DATATYPE="java.lang.Long"
+                   SYSNAME="PersonID" REFENTITYID="10600" REFATTRIBUTEID="10611" IsPrimaryKey="0"/>
+        <!--  Контрагента  на Дети Контрагента -->
+    <SAD_ATTRIBUTE ID="10625" ENTITYID="10600" CATEGORY="3" FIELDNAME="Дети" DATATYPE="java.lang.Long"
+                   SYSNAME="Childs" REFENTITYID="100200" REFATTRIBUTEID="100213" IsPrimaryKey="0"/>
+
+    <SAD_ATTRIBUTE ID="10613" ENTITYID="10600" CATEGORY="1" FIELDNAME="Фамилия" DATATYPE="java.lang.String"
+                   SYSNAME="Surname"/>
+    <SAD_ATTRIBUTE ID="10614" ENTITYID="10600" CATEGORY="1" FIELDNAME="Фамилия на английском" DATATYPE="java.lang.String"
+                   SYSNAME="Surname2"/>
+    <SAD_ATTRIBUTE ID="10615" ENTITYID="10600" CATEGORY="1" FIELDNAME="Имя" DATATYPE="java.lang.String"
+                   SYSNAME="Name"/>
+    <SAD_ATTRIBUTE ID="10617" ENTITYID="10600" CATEGORY="1" FIELDNAME="Имя на английском" DATATYPE="java.lang.String"
+                   SYSNAME="Name2"/>
+    <SAD_ATTRIBUTE ID="10618" ENTITYID="10600" CATEGORY="1" FIELDNAME="Отчество" DATATYPE="java.lang.String"
+                   SYSNAME="Patronymic"/>
+    <SAD_ATTRIBUTE ID="10619" ENTITYID="10600" CATEGORY="1" FIELDNAME="Отчество на английском" DATATYPE="java.lang.String"
+                   SYSNAME="Patronymic2"/>
+    <SAD_ATTRIBUTE ID="10620" ENTITYID="10600" CATEGORY="1" FIELDNAME="Признак отчество отсутствует" DATATYPE="java.lang.Integer"
+                   SYSNAME="IsEmptyPatronymic"/>
+    <SAD_ATTRIBUTE ID="10621" ENTITYID="10600" CATEGORY="1" FIELDNAME="Дата рождения" DATATYPE="java.util.Date"
+                   SYSNAME="DateOfBirth"/>
+    <SAD_ATTRIBUTE ID="10622" ENTITYID="10600" CATEGORY="1" FIELDNAME="Место рождения" DATATYPE="java.lang.String"
+                   SYSNAME="PlaceOfBirth"/>
+    <SAD_ATTRIBUTE ID="10623" ENTITYID="10600" CATEGORY="1" FIELDNAME="Пол" DATATYPE="java.lang.Integer"
+                   SYSNAME="Sex"/>
+    <SAD_ATTRIBUTE ID="10624" ENTITYID="10600" CATEGORY="1" FIELDNAME="ИНН" DATATYPE="java.lang.String"
+                   SYSNAME="INN"/>
+    <SAD_ATTRIBUTE ID="10627" ENTITYID="10600" CATEGORY="1" FIELDNAME="Признак 'Состоит в браке'" DATATYPE="java.lang.Integer"
+                   SYSNAME="IsMarried"/>
+
+
+        <!-- Организационно-правовая форма на классификатор Организационно-правовая форма -->
+    <SAD_ATTRIBUTE ID="100613" ENTITYID="100600" CATEGORY="2" FIELDNAME="Организационно-правовая форма" DATATYPE="java.lang.Long"
+                   SYSNAME="LegalFormsOfBusinessID"  REFENTITYID="100100" REFATTRIBUTEID="100111"/>
+    <SAD_ATTRIBUTE ID="100611" ENTITYID="100600" CATEGORY="1" FIELDNAME="ИД объекта" DATATYPE="java.lang.Long" IsPrimaryKey="1"
+                   SYSNAME="ID"/>
+
+    <SAD_ATTRIBUTE ID="100614" ENTITYID="100600" CATEGORY="1" FIELDNAME="Фамилия" DATATYPE="java.lang.String"
+                   SYSNAME="Surname" />
+    <SAD_ATTRIBUTE ID="100615" ENTITYID="100600" CATEGORY="1" FIELDNAME="Имя" DATATYPE="java.lang.String"
+                   SYSNAME="Name" />
+    <SAD_ATTRIBUTE ID="100616" ENTITYID="100600" CATEGORY="1" FIELDNAME="Отчество" DATATYPE="java.lang.String"
+                   SYSNAME="Patronymic" />
+    <SAD_ATTRIBUTE ID="100617" ENTITYID="100600" CATEGORY="1" FIELDNAME="Признак 'Отчество отсутствует'" DATATYPE="java.lang.Integer"
+                   SYSNAME="IsEmptyPatronymic" />
+    <SAD_ATTRIBUTE ID="100618" ENTITYID="100600" CATEGORY="1" FIELDNAME="Дата рождения" DATATYPE="java.util.Date"
+                   SYSNAME="DateOfBirth" />
+    <SAD_ATTRIBUTE ID="100620" ENTITYID="100600" CATEGORY="1" FIELDNAME="Дата рождения" DATATYPE="java.util.Date"
+                   SYSNAME="DateOfBirth" />
+    <SAD_ATTRIBUTE ID="100621" ENTITYID="100600" CATEGORY="1" FIELDNAME="Место рождения" DATATYPE="java.lang.String"
+                   SYSNAME="PlaceOfBirth" />
+    <SAD_ATTRIBUTE ID="100622" ENTITYID="100600" CATEGORY="1" FIELDNAME="Пол" DATATYPE="java.lang.Long"
+                   SYSNAME="Sex" />
+    <SAD_ATTRIBUTE ID="100623" ENTITYID="100600" CATEGORY="1" FIELDNAME="ИНН" DATATYPE="java.lang.String"
+                   SYSNAME="INN" />
+    <SAD_ATTRIBUTE ID="100624" ENTITYID="100600" CATEGORY="1" FIELDNAME="ОГРНИП" DATATYPE="java.lang.String"
+                   SYSNAME="OGRNIP" />
+
+
+    <!--  Юридическое лицо -->
+    <SAD_ENTITY ID="100700" ISMETAENTITY="1" NAME="Юридическое лицо" TABLENAME="CDM_JPerson" NOTE="Юридическое лицо" SYSNAME="JPerson" PARENTID="10500" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="100711" ENTITYID="100700" CATEGORY="1" FIELDNAME="ИД объекта" DATATYPE="java.lang.Long" IsPrimaryKey="1"
+                   SYSNAME="ID"/>
+        <!-- Организационно-правовая форма на классификатор Организационно-правовая форма -->
+    <SAD_ATTRIBUTE ID="100713" ENTITYID="100700" CATEGORY="2" FIELDNAME="Организационно-правовая форма" DATATYPE="java.lang.Long"
+                   SYSNAME="LegalFormsOfBusinessID"  REFENTITYID="100100" REFATTRIBUTEID="100111"/>
+    <SAD_ATTRIBUTE ID="100714" ENTITYID="100700" CATEGORY="1" FIELDNAME="Наименование" DATATYPE="java.lang.String"
+                   SYSNAME="Name" />
+    <SAD_ATTRIBUTE ID="100715" ENTITYID="100700" CATEGORY="1" FIELDNAME="Полное наименование организации на английском" DATATYPE="java.lang.String"
+                   SYSNAME="Name2" />
+    <SAD_ATTRIBUTE ID="100716" ENTITYID="100700" CATEGORY="1" FIELDNAME="ИНН" DATATYPE="java.lang.String"
+                   SYSNAME="INN" />
+    <SAD_ATTRIBUTE ID="100717" ENTITYID="100700" CATEGORY="1" FIELDNAME="КПП" DATATYPE="java.lang.String"
+                   SYSNAME="KPP" />
+    <SAD_ATTRIBUTE ID="100718" ENTITYID="100700" CATEGORY="1" FIELDNAME="ОГРН" DATATYPE="java.lang.String"
+                   SYSNAME="OGRN" />
+
+    <SAD_ATTRIBUTE ID="100720" ENTITYID="100700" CATEGORY="2" FIELDNAME="Первое лицо" DATATYPE="java.lang.Long"
+                   SYSNAME="FirstPersonID" REFENTITYID="10600" REFATTRIBUTEID="10611" />
+
+
+</dataset>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dataset>
+
+    <!--  Наблюдатель договора страхования-->
+    <SAD_ENTITY ID="102070" ISMETAENTITY="1" NAME="Наблюдатель договора страхования" TABLENAME="SD_Share_Contract" NOTE="Наблюдатель договора страхования" SYSNAME="ShareContractIns" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102123" ENTITYID="102070" CATEGORY="2" FIELDNAME="Роль наблюдателя" DATATYPE="java.lang.Long"
+                   SYSNAME="ShareRoleID"  IsPrimaryKey="0" REFENTITYID="102010" REFATTRIBUTEID="102011"/>
+    <SAD_ATTRIBUTE ID="102121" ENTITYID="102070" CATEGORY="1" FIELDNAME="ИД объекта" DATATYPE="java.lang.Long"
+                   SYSNAME="ID" IsPrimaryKey="1"/>
+    <SAD_ATTRIBUTE ID="102122" ENTITYID="102070" CATEGORY="1" FIELDNAME="ИД сущности" DATATYPE="java.lang.Long"
+                   SYSNAME="EID"/>
+    <SAD_ATTRIBUTE ID="102124" ENTITYID="102070" CATEGORY="1" FIELDNAME="Мобильный телефон" DATATYPE="java.lang.String"
+                   SYSNAME="Tel"/>
+    <SAD_ATTRIBUTE ID="102125" ENTITYID="102070" CATEGORY="1" FIELDNAME="Договор страхования" DATATYPE="java.lang.Long"
+                   SYSNAME="ContractID"/>
+    <SAD_ATTRIBUTE ID="102126" ENTITYID="102070" CATEGORY="2" FIELDNAME="Состояние" DATATYPE="java.lang.Long"
+                   SYSNAME="StateID" REFENTITYID="11200" REFATTRIBUTEID="11211"/>
+
+    <!--  Признаки клиента -->
+    <SAD_ENTITY ID="102060" ISMETAENTITY="1" NAME="Признаки клиента" TABLENAME="CDM_Client_Property" NOTE="Признаки клиента" SYSNAME="ClientProperty" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102113" ENTITYID="102060" CATEGORY="2" FIELDNAME="Тип признака" DATATYPE="java.lang.Long"
+                   SYSNAME="PropertyTypeID"  REFENTITYID="102020" REFATTRIBUTEID="102021" IsPrimaryKey="0"/>
+    <SAD_ATTRIBUTE ID="102111" ENTITYID="102060" CATEGORY="1" FIELDNAME="ИД объекта" DATATYPE="java.lang.Long"
+                   SYSNAME="ID" IsPrimaryKey="1"/>
+    <SAD_ATTRIBUTE ID="102112" ENTITYID="102060" CATEGORY="1" FIELDNAME="ИД сущности" DATATYPE="java.lang.Long"
+                   SYSNAME="EID"/>
+    <SAD_ATTRIBUTE ID="102114" ENTITYID="102060" CATEGORY="1" FIELDNAME="Значение строка" DATATYPE="java.lang.String"
+                   SYSNAME="ValueStr"/>
+    <SAD_ATTRIBUTE ID="102115" ENTITYID="102060" CATEGORY="1" FIELDNAME="Значение целое число" DATATYPE="java.lang.Long"
+                   SYSNAME="ValueInt"/>
+    <SAD_ATTRIBUTE ID="102116" ENTITYID="102060" CATEGORY="1" FIELDNAME="Значение дробное число" DATATYPE="java.lang.Float"
+                   SYSNAME="ValueFloat"/>
+    <SAD_ATTRIBUTE ID="102117" ENTITYID="102060" CATEGORY="1" FIELDNAME="Значение логическое" DATATYPE="java.lang.Integer"
+                   SYSNAME="ValueBoolean"/>
+    <SAD_ATTRIBUTE ID="102118" ENTITYID="102060" CATEGORY="1" FIELDNAME="Значение дата-время" DATATYPE="java.sql.Timestamp"
+                   SYSNAME="ValueDate"/>
+    <SAD_ATTRIBUTE ID="102119" ENTITYID="102060" CATEGORY="2" FIELDNAME="Состояние" DATATYPE="java.lang.Long"
+                   SYSNAME="StateID" REFENTITYID="11200" REFATTRIBUTEID="11211"/>
+
+</dataset>

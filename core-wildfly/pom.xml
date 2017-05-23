@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.bivgroup</groupId>
+    <artifactId>core-wildfly</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <properties>
+    <hibernate.version>5.2.1.Final</hibernate.version>
+    <wildfly.version>10.0.0.Final</wildfly.version>
+    <jboss.home>${project.build.directory}/wildfly-${wildfly.version}</jboss.home>
+</properties>
+<build><plugins>
+<plugin>
+    <artifactId>maven-dependency-plugin</artifactId>
+    <executions>
+        <execution>
+            <id>unpack</id>
+            <phase>pre-integration-test</phase>
+            <goals>
+                <goal>unpack</goal>
+            </goals>
+            <configuration>
+                <artifactItems>
+                    <!-- WildFly server; Unpacked into target/wildfly-10.0.0.Final -->
+                    <artifactItem>
+                        <groupId>org.wildfly</groupId>
+                        <artifactId>wildfly-dist</artifactId>
+                        <version>${wildfly.version}</version>
+                        <type>zip</type>
+                        <overWrite>false</overWrite>
+                        <outputDirectory>${project.build.directory}</outputDirectory>
+                    </artifactItem>
+                    <!-- Hibernate ORM modules; Unpacked into target/wildfly-10.0.0.Final/modules -->
+                    <artifactItem>
+                        <groupId>org.hibernate</groupId>
+                        <artifactId>hibernate-orm-modules</artifactId>
+                        <version>${hibernate.version}</version>
+                        <classifier>wildfly-10-dist</classifier>
+                        <type>zip</type>
+                        <overWrite>false</overWrite>
+                        <outputDirectory>${jboss.home}/modules</outputDirectory>
+                    </artifactItem>
+                </artifactItems>
+            </configuration>
+        </execution>
+    </executions>
+</plugin>
+</plugins>
+</build>
+</project>

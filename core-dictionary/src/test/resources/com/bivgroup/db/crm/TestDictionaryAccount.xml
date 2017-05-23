@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dataset>
+    <!--  Аккаунт клиента  -->
+    <SAD_ENTITY ID="10200" ISMETAENTITY="1" NAME="Аккаунт клиента" TABLENAME="SD_ClientProfile" NOTE="Аккаунт клиента" SYSNAME="ClientProfile" MODULEID="10010"/>
+
+    <SAD_ATTRIBUTE ID="10211" ENTITYID="10200" CATEGORY="1" FIELDNAME="ИД объекта" DATATYPE="java.lang.Long" IsPrimaryKey="1"
+                   SYSNAME="ID" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="10212" ENTITYID="10200" CATEGORY="1" FIELDNAME="ИД сущности" DATATYPE="java.lang.Long"
+                   SYSNAME="EID" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="10213" ENTITYID="10200" CATEGORY="1" FIELDNAME="Мобильный телефон" DATATYPE="java.lang.String"
+                   SYSNAME="Tel" MODULEID="10010"/>
+
+    <!-- Событие акаунта клиента -->
+    <SAD_ENTITY ID="102040" ISMETAENTITY="1" NAME="Событие акаунта клиента" TABLENAME="SD_ClientProfile_Event" NOTE="Событие акаунта клиента" SYSNAME="ClientProfileEvent" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102041" ENTITYID="102040" CATEGORY="1" FIELDNAME="ИД объекта" DATATYPE="java.lang.Long" IsPrimaryKey="1"
+                   SYSNAME="ID" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102042" ENTITYID="102040" CATEGORY="1" FIELDNAME="ИД сущности" DATATYPE="java.lang.Long"
+                   SYSNAME="EID" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102043" ENTITYID="102040" CATEGORY="1" FIELDNAME="Дата события" DATATYPE="java.sql.Timestamp"
+                   SYSNAME="EventDate" MODULEID="10010"/>
+
+    <SAD_ATTRIBUTE ID="102044" ENTITYID="102040" CATEGORY="1" FIELDNAME="Вид приложения" DATATYPE="java.lang.Long"
+                   SYSNAME="ModeApp" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102045" ENTITYID="102040" CATEGORY="1" FIELDNAME="Сигнатура приложения" DATATYPE="java.lang.String"
+                   SYSNAME="Signature" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102046" ENTITYID="102040" CATEGORY="1" FIELDNAME="Код ошибки" DATATYPE="java.lang.String"
+                   SYSNAME="ErrorCode" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102047" ENTITYID="102040" CATEGORY="1" FIELDNAME="Тест ошибки" DATATYPE="java.lang.String"
+                   SYSNAME="ErrorTest" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102048" ENTITYID="102040" CATEGORY="1" FIELDNAME="Параметр строка 1" DATATYPE="java.lang.String"
+                   SYSNAME="ParamStr1" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102049" ENTITYID="102040" CATEGORY="1" FIELDNAME="Параметр строка 2" DATATYPE="java.lang.String"
+                   SYSNAME="ParamStr2" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102050" ENTITYID="102040" CATEGORY="1" FIELDNAME="Параметр строка 3" DATATYPE="java.lang.String"
+                   SYSNAME="ParamStr3" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102051" ENTITYID="102040" CATEGORY="1" FIELDNAME="Параметр строка 4" DATATYPE="java.lang.String"
+                   SYSNAME="ParamStr4" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102052" ENTITYID="102040" CATEGORY="1" FIELDNAME="Параметр строка 5" DATATYPE="java.lang.String"
+                   SYSNAME="ParamStr5" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102053" ENTITYID="102040" CATEGORY="1" FIELDNAME="Параметр строка 6" DATATYPE="java.lang.String"
+                   SYSNAME="ParamStr6" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102054" ENTITYID="102040" CATEGORY="1" FIELDNAME="Параметр строка 7" DATATYPE="java.lang.String"
+                   SYSNAME="ParamStr7" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102055" ENTITYID="102040" CATEGORY="1" FIELDNAME="Параметр строка 8" DATATYPE="java.lang.String"
+                   SYSNAME="ParamStr8" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102056" ENTITYID="102040" CATEGORY="1" FIELDNAME="Параметр строка 9" DATATYPE="java.lang.String"
+                   SYSNAME="ParamStr9" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102057" ENTITYID="102040" CATEGORY="1" FIELDNAME="Параметр строка 10" DATATYPE="java.lang.String"
+                   SYSNAME="ParamStr10" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102058" ENTITYID="102040" CATEGORY="1" FIELDNAME="Параметр целое число 1" DATATYPE="java.lang.Long"
+                   SYSNAME="ParamInt1" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102059" ENTITYID="102040" CATEGORY="1" FIELDNAME="Параметр целое число 2" DATATYPE="java.lang.Long"
+                   SYSNAME="ParamInt2" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102060" ENTITYID="102040" CATEGORY="1" FIELDNAME="Параметр целое число 3" DATATYPE="java.lang.Long"
+                   SYSNAME="ParamInt3" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102061" ENTITYID="102040" CATEGORY="1" FIELDNAME="Параметр целое число 4" DATATYPE="java.lang.Long"
+                   SYSNAME="ParamInt4" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102062" ENTITYID="102040" CATEGORY="1" FIELDNAME="Параметр целое число 5" DATATYPE="java.lang.Long"
+                   SYSNAME="ParamInt5" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102063" ENTITYID="102040" CATEGORY="1" FIELDNAME="Параметр целое число 6" DATATYPE="java.lang.Long"
+                   SYSNAME="ParamInt6" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102064" ENTITYID="102040" CATEGORY="1" FIELDNAME="Параметр целое число 7" DATATYPE="java.lang.Long"
+                   SYSNAME="ParamInt7" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102065" ENTITYID="102040" CATEGORY="1" FIELDNAME="Параметр целое число 8" DATATYPE="java.lang.Long"
+                   SYSNAME="ParamInt8" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102066" ENTITYID="102040" CATEGORY="1" FIELDNAME="Параметр целое число 9" DATATYPE="java.lang.Long"
+                   SYSNAME="ParamInt9" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102067" ENTITYID="102040" CATEGORY="1" FIELDNAME="Параметр целое число 10" DATATYPE="java.lang.Long"
+                   SYSNAME="ParamInt10" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102068" ENTITYID="102040" CATEGORY="1" FIELDNAME="Параметр дробное число 1" DATATYPE="java.lang.Float"
+                   SYSNAME="ParamFloat1" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102069" ENTITYID="102040" CATEGORY="1" FIELDNAME="Параметр дробное число 2" DATATYPE="java.lang.Float"
+                   SYSNAME="ParamFloat2" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102070" ENTITYID="102040" CATEGORY="1" FIELDNAME="Параметр дробное число 3" DATATYPE="java.lang.Float"
+                   SYSNAME="ParamFloat3" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102071" ENTITYID="102040" CATEGORY="1" FIELDNAME="Параметр дробное число 4" DATATYPE="java.lang.Float"
+                   SYSNAME="ParamFloat4" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102072" ENTITYID="102040" CATEGORY="1" FIELDNAME="Параметр дробное число 5" DATATYPE="java.lang.Float"
+                   SYSNAME="ParamFloat5" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102073" ENTITYID="102040" CATEGORY="1" FIELDNAME="Параметр дробное число 6" DATATYPE="java.lang.Float"
+                   SYSNAME="ParamFloat6" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102074" ENTITYID="102040" CATEGORY="1" FIELDNAME="Параметр дробное число 7" DATATYPE="java.lang.Float"
+                   SYSNAME="ParamFloat7" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102075" ENTITYID="102040" CATEGORY="1" FIELDNAME="Параметр дробное число 8" DATATYPE="java.lang.Float"
+                   SYSNAME="ParamFloat8" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102076" ENTITYID="102040" CATEGORY="1" FIELDNAME="Параметр дробное число 9" DATATYPE="java.lang.Float"
+                   SYSNAME="ParamFloat9" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102077" ENTITYID="102040" CATEGORY="1" FIELDNAME="Параметр дробное число 10" DATATYPE="java.lang.Float"
+                   SYSNAME="ParamFloat10" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102078" ENTITYID="102040" CATEGORY="1" FIELDNAME="Параметр логическое 1" DATATYPE="java.lang.Integer"
+                   SYSNAME="ParamBoolean1" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102079" ENTITYID="102040" CATEGORY="1" FIELDNAME="Параметр логическое 2" DATATYPE="java.lang.Integer"
+                   SYSNAME="ParamBoolean2" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102080" ENTITYID="102040" CATEGORY="1" FIELDNAME="Параметр логическое 3" DATATYPE="java.lang.Integer"
+                   SYSNAME="ParamBoolean3" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102081" ENTITYID="102040" CATEGORY="1" FIELDNAME="Параметр логическое 4" DATATYPE="java.lang.Integer"
+                   SYSNAME="ParamBoolean4" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102082" ENTITYID="102040" CATEGORY="1" FIELDNAME="Параметр логическое 5" DATATYPE="java.lang.Integer"
+                   SYSNAME="ParamBoolean5" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102083" ENTITYID="102040" CATEGORY="1" FIELDNAME="Параметр логическое 6" DATATYPE="java.lang.Integer"
+                   SYSNAME="ParamBoolean6" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102084" ENTITYID="102040" CATEGORY="1" FIELDNAME="Параметр логическое 7" DATATYPE="java.lang.Integer"
+                   SYSNAME="ParamBoolean7" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102085" ENTITYID="102040" CATEGORY="1" FIELDNAME="Параметр логическое 8" DATATYPE="java.lang.Integer"
+                   SYSNAME="ParamBoolean8" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102086" ENTITYID="102040" CATEGORY="1" FIELDNAME="Параметр логическое 9" DATATYPE="java.lang.Integer"
+                   SYSNAME="ParamBoolean9" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102087" ENTITYID="102040" CATEGORY="1" FIELDNAME="Параметр логическое 10" DATATYPE="java.lang.Integer"
+                   SYSNAME="ParamBoolean10" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102088" ENTITYID="102040" CATEGORY="1" FIELDNAME="Параметр дата-время 1" DATATYPE="java.lang.Integer"
+                   SYSNAME="ParamDate1" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102089" ENTITYID="102040" CATEGORY="1" FIELDNAME="Параметр дата-время 2" DATATYPE="java.lang.Integer"
+                   SYSNAME="ParamDate2" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102090" ENTITYID="102040" CATEGORY="1" FIELDNAME="Параметр дата-время 3" DATATYPE="java.lang.Integer"
+                   SYSNAME="ParamDate3" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102091" ENTITYID="102040" CATEGORY="1" FIELDNAME="Параметр дата-время 4" DATATYPE="java.lang.Integer"
+                   SYSNAME="ParamDate4" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102092" ENTITYID="102040" CATEGORY="1" FIELDNAME="Параметр дата-время 5" DATATYPE="java.lang.Integer"
+                   SYSNAME="ParamDate5" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102093" ENTITYID="102040" CATEGORY="1" FIELDNAME="Параметр дата-время 6" DATATYPE="java.lang.Integer"
+                   SYSNAME="ParamDate6" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102094" ENTITYID="102040" CATEGORY="1" FIELDNAME="Параметр дата-время 7" DATATYPE="java.lang.Integer"
+                   SYSNAME="ParamDate7" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102095" ENTITYID="102040" CATEGORY="1" FIELDNAME="Параметр дата-время 8" DATATYPE="java.lang.Integer"
+                   SYSNAME="ParamDate8" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102096" ENTITYID="102040" CATEGORY="1" FIELDNAME="ППараметр дата-время 9" DATATYPE="java.lang.Integer"
+                   SYSNAME="ParamDate9" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102097" ENTITYID="102040" CATEGORY="1" FIELDNAME="Параметр дата-время 10" DATATYPE="java.lang.Integer"
+                   SYSNAME="ParamDate10" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102101" ENTITYID="102040" CATEGORY="1" FIELDNAME="Объект источник события" DATATYPE="java.lang.Long"
+                   SYSNAME="RefObjectID" MODULEID="10010"/>
+
+
+    <!-- Токен акаунта клиента -->
+    <SAD_ENTITY ID="102050" ISMETAENTITY="1" NAME="Токен акаунта клиента" TABLENAME="SD_ClientProfile_Token" NOTE="Событие акаунта клиента" SYSNAME="ClientProfileToken" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102151" ENTITYID="102050" CATEGORY="1" FIELDNAME="ИД объекта" DATATYPE="java.lang.Long" IsPrimaryKey="1"
+                   SYSNAME="ID" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102152" ENTITYID="102050" CATEGORY="1" FIELDNAME="ИД сущности" DATATYPE="java.lang.Long"
+                   SYSNAME="EID" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102153" ENTITYID="102050" CATEGORY="1" FIELDNAME="Дата окончания срока действия" DATATYPE="java.util.Date"
+                   SYSNAME="DateOfExpiry" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102154" ENTITYID="102050" CATEGORY="1" FIELDNAME="Дата создания" DATATYPE="java.sql.Timestamp"
+                   SYSNAME="CreateDate" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102156" ENTITYID="102050" CATEGORY="1" FIELDNAME="Ключ" DATATYPE="java.lang.String"
+                   SYSNAME="Hash" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102157" ENTITYID="102050" CATEGORY="1" FIELDNAME="ID устройства" DATATYPE="java.lang.String"
+                   SYSNAME="IDDevice" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102158" ENTITYID="102050" CATEGORY="1" FIELDNAME="Признак 'Не используется'" DATATYPE="java.lang.Integer"
+                   SYSNAME="IsNotUsed" MODULEID="10010"/>
+
+
+
+</dataset>

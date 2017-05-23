@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dataset>
+
+    <!-- Банковские реквизиты -->
+    <SAD_ENTITY ID="100000" ISMETAENTITY="1" NAME="Банковские реквизиты" TABLENAME="SD_BankDetails" NOTE="Банковские реквизиты" SYSNAME="BankDetails" MODULEID="10010"/>
+
+    <SAD_ATTRIBUTE ID="100011" ENTITYID="100000" CATEGORY="1" FIELDNAME="ИД объекта" DATATYPE="java.lang.Long"
+                   SYSNAME="ID" IsPrimaryKey="1"/>
+    <SAD_ATTRIBUTE ID="100012" ENTITYID="100000" CATEGORY="1" FIELDNAME="ИД сущности" DATATYPE="java.lang.Long"
+                   SYSNAME="EID" />
+    <SAD_ATTRIBUTE ID="100013" ENTITYID="100000" CATEGORY="1" FIELDNAME="Наименование банка" DATATYPE="java.lang.String"
+                   SYSNAME="BankName" />
+    <SAD_ATTRIBUTE ID="100014" ENTITYID="100000" CATEGORY="1" FIELDNAME="БИК банка" DATATYPE="java.lang.String"
+                   SYSNAME="BankBIK" />
+    <SAD_ATTRIBUTE ID="100015" ENTITYID="100000" CATEGORY="1" FIELDNAME="ИНН банка" DATATYPE="java.lang.String"
+                   SYSNAME="BankINN" />
+    <SAD_ATTRIBUTE ID="100016" ENTITYID="100000" CATEGORY="1" FIELDNAME="Корреспондентский счет банка" DATATYPE="java.lang.String"
+                   SYSNAME="BankAccount" />
+    <SAD_ATTRIBUTE ID="100017" ENTITYID="100000" CATEGORY="1" FIELDNAME="Счет получателя" DATATYPE="java.lang.String"
+                   SYSNAME="Account" />
+    <SAD_ATTRIBUTE ID="100018" ENTITYID="100000" CATEGORY="1" FIELDNAME="Назначение платежа" DATATYPE="java.lang.String"
+                   SYSNAME="PurposeOfPayment" />
+
+</dataset>

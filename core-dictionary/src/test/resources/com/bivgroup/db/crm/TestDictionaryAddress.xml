@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dataset>
+    <!--  Адрес -->
+    <SAD_ENTITY ID="11900" ISMETAENTITY="1" NAME="Адрес" TABLENAME="SD_Address" NOTE="Адрес" SYSNAME="Address" MODULEID="10010"/>
+        <!-- Тип адреса на классификатор типа адреса-->
+    <SAD_ATTRIBUTE ID="11913" ENTITYID="11900" CATEGORY="2" FIELDNAME="Тип адреса" DATATYPE="java.lang.Long"
+                   SYSNAME="TypeID" REFENTITYID="11500" REFATTRIBUTEID="11511" IsPrimaryKey="0"/>
+        <!-- Страна на классификатор  стран-->
+    <SAD_ATTRIBUTE ID="11915" ENTITYID="11900" CATEGORY="2" FIELDNAME="Страна" DATATYPE="java.lang.Long"
+                   SYSNAME="CountryID" REFENTITYID="11300" REFATTRIBUTEID="11311"/>
+    <SAD_ATTRIBUTE ID="11911" ENTITYID="11900" CATEGORY="1" FIELDNAME="ИД объекта" DATATYPE="java.lang.Long" IsPrimaryKey="1"
+                   SYSNAME="ID"/>
+    <SAD_ATTRIBUTE ID="11912" ENTITYID="11900" CATEGORY="1" FIELDNAME="ИД сущности" DATATYPE="java.lang.Long"
+                   SYSNAME="EID"/>
+    <SAD_ATTRIBUTE ID="11914" ENTITYID="11900" CATEGORY="1" FIELDNAME="Способ заполнения" DATATYPE="java.lang.Integer"
+                   SYSNAME="FillMethod"/>
+    <SAD_ATTRIBUTE ID="11916" ENTITYID="11900" CATEGORY="1" FIELDNAME="Регион" DATATYPE="java.lang.String"
+                   SYSNAME="Region"/>
+    <SAD_ATTRIBUTE ID="11917" ENTITYID="11900" CATEGORY="1" FIELDNAME="Регион по КЛАДР" DATATYPE="java.lang.String"
+                   SYSNAME="RegionCode"/>
+    <SAD_ATTRIBUTE ID="11918" ENTITYID="11900" CATEGORY="1" FIELDNAME="Район" DATATYPE="java.lang.String"
+                   SYSNAME="District"/>
+    <SAD_ATTRIBUTE ID="11919" ENTITYID="11900" CATEGORY="1" FIELDNAME="Район по КЛАДР" DATATYPE="java.lang.String"
+                   SYSNAME="DistrictCode"/>
+    <SAD_ATTRIBUTE ID="11920" ENTITYID="11900" CATEGORY="1" FIELDNAME="Город" DATATYPE="java.lang.String"
+                   SYSNAME="City"/>
+    <SAD_ATTRIBUTE ID="11921" ENTITYID="11900" CATEGORY="1" FIELDNAME="Город по КЛАДР" DATATYPE="java.lang.String"
+                   SYSNAME="CityCode"/>
+    <SAD_ATTRIBUTE ID="11922" ENTITYID="11900" CATEGORY="1" FIELDNAME="Населенный пункт" DATATYPE="java.lang.String"
+                   SYSNAME="Village"/>
+    <SAD_ATTRIBUTE ID="11923" ENTITYID="11900" CATEGORY="1" FIELDNAME="Населенный пункт по КЛАДР" DATATYPE="java.lang.String"
+                   SYSNAME="VillageCode"/>
+    <SAD_ATTRIBUTE ID="11924" ENTITYID="11900" CATEGORY="1" FIELDNAME="Улица" DATATYPE="java.lang.String"
+                   SYSNAME="Street"/>
+    <SAD_ATTRIBUTE ID="11925" ENTITYID="11900" CATEGORY="1" FIELDNAME="Улица по КЛАДР" DATATYPE="java.lang.String"
+                   SYSNAME="StreetCode"/>
+    <SAD_ATTRIBUTE ID="11926" ENTITYID="11900" CATEGORY="1" FIELDNAME="Признак 'Улица отсутствует'" DATATYPE="java.lang.String"
+                   SYSNAME="IsEmptyStreet"/>
+    <SAD_ATTRIBUTE ID="11927" ENTITYID="11900" CATEGORY="1" FIELDNAME="Дом" DATATYPE="java.lang.String"
+                   SYSNAME="House"/>
+    <SAD_ATTRIBUTE ID="11928" ENTITYID="11900" CATEGORY="1" FIELDNAME="Квартира" DATATYPE="java.lang.String"
+                   SYSNAME="Flat"/>
+    <SAD_ATTRIBUTE ID="11929" ENTITYID="11900" CATEGORY="1" FIELDNAME="Почтовый индекс" DATATYPE="java.lang.String"
+                   SYSNAME="Postcode"/>
+    <SAD_ATTRIBUTE ID="11930" ENTITYID="11900" CATEGORY="1" FIELDNAME="Адрес строкой" DATATYPE="java.lang.String"
+                   SYSNAME="Address"/>
+    <SAD_ATTRIBUTE ID="11931" ENTITYID="11900" CATEGORY="1" FIELDNAME="Адрес строкой на английском" DATATYPE="java.lang.String"
+                   SYSNAME="Address2"/>
+    <!--<SAD_ATTRIBUTE ID="11932" ENTITYID="11900" CATEGORY="1" FIELDNAME="Тип адреса" DATATYPE="java.lang.Long"-->
+                   <!--SYSNAME="TypeID"/>-->
+
+
+</dataset>

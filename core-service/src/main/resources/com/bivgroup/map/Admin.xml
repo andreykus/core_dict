@@ -1,0 +1,680 @@
+<?xml version="1.0"?>
+<!--
+  ~ Hibernate, Relational Persistence for Idiomatic Java
+  ~
+  ~ License: GNU Lesser General Public License (LGPL), version 2.1 or later.
+  ~ See the lgpl.txt file in the root directory or <http://www.gnu.org/licenses/lgpl-2.1.html>.
+  -->
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+                 version="1.0">
+
+
+    <named-native-query name="admAccountRemove">
+        <query>
+            <![CDATA[
+            DELETE
+            FROM
+                CORE_USERACCOUNT
+            WHERE
+                CORE_USERACCOUNT.USERACCOUNTID = :USERACCOUNTID
+                ]]>
+        </query>
+    </named-native-query>
+
+    <named-native-query name="admAccountRoleRemoveAll">
+        <query>
+            <![CDATA[
+            DELETE FROM CORE_ROLEACCOUNT WHERE USERACCOUNTID=:USERACCOUNTID
+                ]]>
+        </query>
+    </named-native-query>
+
+    <named-native-query name="admEmplAccountById">
+        <query>
+            <![CDATA[
+                SELECT
+                    ACC.USERACCOUNTID,
+                    ACC.USERID,
+                    ACC.LOGIN,
+                    ACC.STATUS,
+                    EMPL.EMPLOYEEID,
+                    EMPL.POSITION,
+                    nvl(EMPL.LASTNAME, '') || ' ' || nvl(EMPL.FIRSTNAME, '') || ' ' || nvl(EMPL.MIDDLENAME, '') AS FIO,
+                EMPL.LASTNAME, EMPL.FIRSTNAME, EMPL.MIDDLENAME,
+                EMPL.MANAGER,
+                EMPL.PHONE1,
+                EMPL.PHONE2,
+                EMPL.EMAIL
+                FROM DEP_EMPLOYEE EMPL
+                INNER JOIN CORE_USER USR ON USR.OBJECTTYPE = 1 AND USR.OBJECTID = EMPL.EMPLOYEEID
+                INNER JOIN CORE_USERACCOUNT ACC ON ACC.USERID = USR.USERID
+                WHERE
+                ACC.USERACCOUNTID = :USERACCOUNTID
+                ]]>
+        </query>
+    </named-native-query>
+
+    <named-native-query name="dsUserSettingGetBySysName">
+        <query><![CDATA[
+            SELECT
+                USRSETTINGID,
+                USERACCOUNTID,
+                USRSETTINGSYSNAME,
+                USRSETTINGNAME,
+                USRSETTINGVALUE
+            FROM CORE_USRSETTING
+            WHERE
+                USERACCOUNTID = :USERACCOUNTID AND
+                USRSETTINGSYSNAME = :USRSETTINGSYSNAME
+            ]]>
+        </query>
+    </named-native-query>
+
+    <named-native-query name="admUserUpdate">
+        <query><![CDATA[
+            UPDATE
+                CORE_USER
+            SET
+                CORE_USER.STATUS          = :STATUS,
+                CORE_USER.BLOCKIFINACTIVE = :BLOCKIFINACTIVE,
+                CORE_USER.OBJECTTYPE      = :OBJECTTYPE
+            #chunk($OBJECTID), CORE_USER.OBJECTID = $OBJECTID #end
+            WHERE
+            CORE_USER.USERID = $USERID
+            ]]>
+        </query>
+    </named-native-query>
+
+    <named-native-query name="admAccountUpdate">
+        <query><![CDATA[
+            UPDATE CORE_USERACCOUNT
+            SET
+                #chunk($ISCONCURRENT) ISCONCURRENT = $ISCONCURRENT, #end
+                #chunk($DESCRIPTION) DESCRIPTION = '$DESCRIPTION', #end
+                STATUS = :STATUS,
+                AUTHMETHOD = :AUTHMETHOD
+            WHERE
+                CORE_USERACCOUNT.USERACCOUNTID = :USERACCOUNTID
+            ]]>
+        </query>
+    </named-native-query>
+
+    <named-native-query name="CHANGEOPERSTATUS">
+        <query><![CDATA[
+            UPDATE core_massoper
+            SET operstatus = :OPERSTATUS
+            #chunk($CURRENTPERCENT) , currentpercent = $CURRENTPERCENT #end
+            #chunk($DETAIL) , detail = '$DETAIL' #end
+            WHERE massoperid = :MASSOPERID
+            ]]>
+        </query>
+    </named-native-query>
+
+    <named-native-query name="GETMASSOPERSTATEBYID">
+        <query>
+            <![CDATA[
+            SELECT
+                mo.*,
+                mt.OPERSYSNAME
+            FROM core_massoper mo
+                JOIN core_massopertype mt ON mt.massopertypeid = mo.massopertypeid
+            WHERE massoperid = :MASSOPERID
+            ]]>
+        </query>
+    </named-native-query>
+
+    <named-native-query name="ADDMASSOPER">
+        <query><![CDATA[
+            INSERT INTO core_massoper (massoperid, opername, operstatus, operstartdate,
+                                       currentpercent, operstarter, massopertypeid)
+            VALUES (:ID, :OPERNAME, :OPERSTATUS, :OPERSTARTDATE,
+                    :CURRENTPERCENT, :OPERSTARTER, :MASSOPERTYPEID)
+            ]]>
+        </query>
+    </named-native-query>
+
+    <named-native-query name="GETMASSOPERTYPEBYSYSNAME">
+        <query>
+            <![CDATA[
+            SELECT *
+            FROM core_massopertype
+            WHERE opersysname = :MASSOPERTYPE
+            ]]>
+        </query>
+    </named-native-query>
+
+    <named-native-query name="GETLOGINOLD">
+        <query>
+            <![CDATA[
+            SELECT ua.*
+            FROM CORE_USERACCOUNT ua
+            WHERE login = :username
+                  AND (
+                      password = :password
+                      OR (1 = 1
+                          AND (:passwordSha IS NULL OR password = :passwordSha))
+                  )
+                  AND STATUS = 'ACTIVE'
+            ]]>
+        </query>
+    </named-native-query>
+
+    <named-native-query name="getStateObject">
+        <query>SELECT
+            ID,
+            OBJID,
+            STATEID,
+            STATENAME
+            FROM SM_OBJSTATE
+            WHERE ID = :id
+        </query>
+    </named-native-query>
+
+    <named-native-query name="getNewIDBatch">
+        <query>SELECT NEXT_ID
+            FROM TABLE(CAST(AUTO_PK_FOR_TABLE(:TABLE_NAME, :BATCH_SIZE) AS GET_ID_TYPE))
+        </query>
+    </named-native-query>
+
+    <named-native-query name="GETMETADATAURL">
+        <query>SELECT cp.METADATAURL
+            FROM CORE_PROJECT cp
+            WHERE cp.PROJECTID = :PROJECTID
+        </query>
+    </named-native-query>
+
+    <named-native-query name="dsMaskFindById">
+        <query>SELECT
+            MASKID,
+            SYSTEMBRIEF,
+            MASK,
+            CRITERION,
+            DESCRIPTION
+            FROM CORE_MASK
+            WHERE MASKID = :MASKID
+        </query>
+    </named-native-query>
+
+    <named-native-query name="dsMaskFindByBrief">
+        <query>SELECT
+            MASKID,
+            SYSTEMBRIEF,
+            MASK,
+            CRITERION,
+            DESCRIPTION
+            FROM CORE_MASK
+            WHERE SYSTEMBRIEF = :SYSTEMBRIEF
+        </query>
+    </named-native-query>
+
+    <named-native-query name="dsGetCounters">
+        <query><![CDATA[
+            SELECT
+                NUMVALUE,
+                LATVALUE,
+                CYRVALUE
+            FROM TABLE(CAST(MASKCOUNTER_NEXT(
+                                    :MASKID,
+                                    :CRITERION,
+                                    :BATCH
+                                    #chunk($MINNUMVALUE), $MINNUMVALUE #end
+                                    #chunk($MINLATVALUE), $MINLATVALUE #end
+                                    #chunk($MINCYRVALUE), $MINCYRVALUE #end
+                                    #chunk($MAXNUMVALUE), $MAXNUMVALUE #end
+                                    #chunk($MAXLATVALUE), $MAXLATVALUE #end
+                                    #chunk($MAXCYRVALUE), $MAXCYRVALUE #end
+                            ) AS GET_COUNTER_TYPE))
+            ]]>
+        </query>
+    </named-native-query>
+
+    <named-native-query name="GETSYSSETTINGS">
+        <query>
+            SELECT
+            SETTINGSYSNAME AS NAME,
+            SETTINGVALUE AS VALUE
+            FROM CORE_SETTING
+        </query>
+    </named-native-query>
+
+    <named-native-query name="getSysSettings">
+        <query>
+            SELECT *
+            FROM CORE_SETTING
+        </query>
+    </named-native-query>
+    <named-native-query name="getSysSettingBySysName">
+        <query>
+            SELECT *
+            FROM CORE_SETTING
+            WHERE SETTINGSYSNAME = :SETTINGSYSNAME
+        </query>
+    </named-native-query>
+    <named-native-query name="getIDsByLogin">
+        <query>
+            SELECT
+            ua.USERACCOUNTID AS USERACCOUNTID,
+            ua.LOGIN AS LOGIN1,
+            cu.PARTICIPANTID AS PARTICIPANTID
+            FROM CORE_USERACCOUNT ua, CORE_USER cu
+            WHERE ua.USERID = cu.USERID
+            AND ua.LOGIN = :LOGIN
+        </query>
+    </named-native-query>
+
+    <named-native-query name="dsAccountSettings">
+        <query>
+            SELECT
+            CUS.USRSETTINGSYSNAME AS SYSNAME,
+            CUS.USRSETTINGNAME AS NAME,
+            CUS.USRSETTINGVALUE AS VALUE
+            FROM CORE_USRSETTING CUS
+            WHERE CUS.USERACCOUNTID = :USERACCOUNTID
+        </query>
+    </named-native-query>
+
+    <named-native-query name="admUserIsEmployee">
+        <query>
+            SELECT DE.EMPLOYEEID AS EMPLOYEEID
+            FROM
+            DEP_EMPLOYEE DE,
+            CORE_USER CU
+            WHERE
+            DE.EMPLOYEEID = CU.OBJECTID
+            AND CU.OBJECTTYPE = 1
+            AND CU.USERID = :USERID
+        </query>
+    </named-native-query>
+
+    <named-native-query name="admParticipantByID">
+        <query>
+            SELECT
+            CU.USERID,
+            CU.PARTICIPANTID,
+            CU.STATUS,
+            CU.BLOCKIFINACTIVE,
+            CU.OBJECTTYPE,
+            CU.OBJECTID,
+            CP.PARTICIPANTID,
+            CP.EXTERNALID,
+            CP.PARTICIPANTTYPE,
+            CP.STATE,
+            CP.PARTICIPANTNAME,
+            CP.EMPLOYEEID,
+            CP.CREATIONDATE,
+            DD.DEPTSHORTNAME AS DEPARTMENTNAME,
+            DE.DEPARTMENTID AS DEPARTMENTID,
+            nvl(DE.LASTNAME, '') || ' ' || nvl(DE.FIRSTNAME, '') || ' ' || nvl(DE.MIDDLENAME, '') AS EMPLOYEENAME,
+            DE.LASTNAME, DE.FIRSTNAME, DE.MIDDLENAME
+            FROM CORE_USER CU
+            LEFT JOIN CORE_PARTICIPANT CP ON CP.PARTICIPANTID = CU.OBJECTID
+            LEFT JOIN DEP_EMPLOYEE DE ON DE.EMPLOYEEID = CP.EMPLOYEEID
+            LEFT JOIN DEP_DEPARTMENT DD ON DD.DEPARTMENTID = DE.DEPARTMENTID
+            WHERE
+            CU.STATUS != 'DELETED'
+            AND CU.USERID = :USERID
+        </query>
+    </named-native-query>
+
+    <named-native-query name="getUserIDByAccountInfo">
+        <query>
+            SELECT
+            USERID AS "UserID",
+            USERID,
+            USERACCOUNTID,
+            LOGIN
+            FROM
+            CORE_USERACCOUNT
+            WHERE
+            STATUS != 'DELETED'
+            AND (:USERACCOUNTID IS NULL OR USERACCOUNTID = :USERACCOUNTID)
+            AND (:LOGIN IS NULL OR LOGIN = :LOGIN)
+        </query>
+    </named-native-query>
+
+
+    <named-native-query name="admUsersByRole">
+        <query>
+            SELECT DISTINCT
+            cu.USERID,
+            CASE
+            WHEN cu.OBJECTTYPE = 1
+            THEN nvl(de.LASTNAME, '') || ' ' || nvl(de.FIRSTNAME, '') || ' ' || nvl(de.MIDDLENAME, '')
+            ELSE cp.PARTICIPANTNAME
+            END AS FIO,
+            cr.TODATE
+            FROM CORE_USER cu
+            LEFT JOIN DEP_EMPLOYEE de ON de.EMPLOYEEID = cu.OBJECTID
+            LEFT JOIN CORE_PARTICIPANT cp ON cp.PARTICIPANTID = cu.OBJECTID
+            LEFT JOIN CORE_USERACCOUNT ca ON ca.USERID = cu.USERID
+            INNER JOIN CORE_ROLEACCOUNT cr ON cr.USERACCOUNTID = ca.USERACCOUNTID AND cr.ROLEID = :ROLEID AND
+            (:TODATE IS NULL OR
+            (cr.TODATE = 0 OR cr.TODATE IS NULL OR cr.TODATE > :TODATE))
+            WHERE
+            (1 = 1)
+            AND (:SEARCHTEXT IS NULL OR
+            (de.LASTNAME LIKE :SEARCHTEXT OR de.FIRSTNAME LIKE :SEARCHTEXT OR de.MIDDLENAME LIKE :SEARCHTEXT OR
+            cp.PARTICIPANTNAME LIKE :SEARCHTEXT))
+        </query>
+    </named-native-query>
+
+    <named-native-query name="dsUserSettingInsert">
+        <query>
+            INSERT INTO CORE_USRSETTING (
+            USRSETTINGID,
+            USERACCOUNTID,
+            USRSETTINGSYSNAME,
+            USRSETTINGNAME,
+            USRSETTINGVALUE
+            )
+            VALUES (
+            :USRSETTINGID,
+            :USERACCOUNTID,
+            :USRSETTINGSYSNAME,
+            :USRSETTINGNAME,
+            :USRSETTINGVALUE
+            )
+        </query>
+    </named-native-query>
+
+    <named-native-query name="dsUserSettingUpdate">
+        <query>
+            UPDATE CORE_USRSETTING
+            SET
+            USRSETTINGVALUE = :USRSETTINGVALUE
+            WHERE
+            (1 = 1)
+            AND (:USRSETTINGID IS NULL OR (USRSETTINGID = :USRSETTINGID))
+            AND USERACCOUNTID = :USERACCOUNTID
+            AND USRSETTINGSYSNAME = :USRSETTINGSYSNAME
+        </query>
+    </named-native-query>
+
+    <named-native-query name="dsGetUserForEmployee">
+        <query>
+            SELECT USERID
+            FROM CORE_USER
+            WHERE
+            OBJECTTYPE = :USERTYPE
+            AND OBJECTID = :EMPLOYEEID
+        </query>
+    </named-native-query>
+
+    <named-native-query name="dsGetUsertypeRefIdBySysname">
+        <query>
+            SELECT
+            RI.REFITEMID,
+            RI.CODE,
+            RI.SHORTVALUE,
+            RI.FULLVALUE
+            FROM REF_REFITEM RI
+            INNER JOIN REF_REFERENCE RFR ON RFR.REFERENCEID = RI.REFERENCEID AND RFR.REFSYSNAME = 'usertype'
+            WHERE RI.SHORTVALUE = :USERTYPE
+        </query>
+    </named-native-query>
+
+    <named-native-query name="dsGetPrivilegedUsersCount">
+        <query>
+            SELECT COUNT(ISCONCURRENT) AS "PrivilegedCount"
+            FROM CORE_USERACCOUNT
+            WHERE ISCONCURRENT = 0 AND STATUS = 'ACTIVE'
+        </query>
+    </named-native-query>
+
+    <named-native-query name="dsGetConcurrentUsersCount">
+        <query>
+            SELECT COUNT(ISCONCURRENT) AS "ConcurrentCount"
+            FROM CORE_USERACCOUNT
+            WHERE ISCONCURRENT = 1 AND STATUS = 'ACTIVE'
+        </query>
+    </named-native-query>
+
+    <named-native-query name="depParticipantUpdate">
+        <query><![CDATA[
+            UPDATE
+                CORE_PARTICIPANT
+            SET
+                #chain(',')
+                #chunk($PARTICIPANTTYPE) PARTICIPANTTYPE = :PARTICIPANTTYPE #end
+            #chunk($ STATE) STATE = :STATE#end
+            #chunk($PARTICIPANTNAME) PARTICIPANTNAME = :PARTICIPANTNAME #end
+            #chunk($EMPLOYEEID) EMPLOYEEID = :EMPLOYEEID #end
+            #end
+            WHERE
+            CORE_PARTICIPANT.PARTICIPANTID = :PARTICIPANTID
+            ]]>
+        </query>
+    </named-native-query>
+
+    <named-native-query name="dsUserSetStatus">
+        <query>
+            UPDATE CORE_USER
+            SET STATUS = :STATUS
+            WHERE USERID = :USERID
+        </query>
+    </named-native-query>
+
+    <named-native-query name="depEmployeeAccounts">
+        <query>
+            SELECT
+            CORE_USERACCOUNT.USERACCOUNTID,
+            CORE_USERACCOUNT.LOGIN,
+            CORE_USERACCOUNT.STATUS
+            FROM
+            CORE_USER,
+            CORE_USERACCOUNT
+            WHERE
+            CORE_USER.USERID = CORE_USERACCOUNT.USERID AND CORE_USERACCOUNT.STATUS != 'DISABLED' AND
+            CORE_USER.OBJECTID = :PARTICIPANTID
+            ORDER BY CORE_USERACCOUNT.LOGIN
+        </query>
+    </named-native-query>
+
+    <named-native-query name="admAccountBlock">
+        <query>
+            UPDATE
+            CORE_USERACCOUNT
+            SET
+            STATUS = :STATUS
+            WHERE
+            USERACCOUNTID = :USERACCOUNTID
+        </query>
+    </named-native-query>
+
+    <named-native-query name="admUserAdd">
+        <query>
+            INSERT INTO
+            CORE_USER (USERID, OBJECTTYPE, OBJECTID, STATUS, BLOCKIFINACTIVE)
+            VALUES
+            (:USERID, :OBJECTTYPE, :OBJECTID, :STATUS, :BLOCKIFINACTIVE)
+        </query>
+    </named-native-query>
+    <!-- ###############no method#################### -->
+    <named-native-query name="admUserInfo">
+        <query>
+            SELECT
+            ACC.USERID,
+            ACC.LOGIN AS USERLOGIN,
+            ACC.STATUS AS ACCSTATUS,
+            ACC.LASTLOGINEVENT AS ACCLASTLOGINEVENT,
+            ACC.PREFLANGUAGE AS PREFLANG,
+            EMP.POSITION AS USERPOSITION,
+            EMP.EMPLOYEEID AS EMPLOYEEID,
+            EMP.LASTNAME || ' ' || EMP.FIRSTNAME || ' ' || EMP.MIDDLENAME AS EMPLOYEENAME,
+            EMP.LASTNAME, EMP.FIRSTNAME, EMP.MIDDLENAME,
+            EMP.PHONE1 AS EMPPHONE1,
+            EMP.PHONE2 AS EMPPHONE2,
+            EMP.EMAIL AS EMPEMAIL,
+            DEP.DEPTFULLNAME AS USERDEPT,
+            DEP.DEPARTMENTID AS USERDEPTID,
+            CER.SIGNERID AS USERCERTID
+            FROM CORE_USERACCOUNT ACC JOIN CORE_USER USR ON ACC.USERID = USR.USERID
+            LEFT OUTER JOIN DEP_EMPLOYEE EMP ON USR.OBJECTID = EMP.EMPLOYEEID
+            LEFT OUTER JOIN DEP_DEPARTMENT DEP ON EMP.DEPARTMENTID = DEP.DEPARTMENTID
+            LEFT OUTER JOIN CORE_USERCERT CER ON (ACC.USERACCOUNTID = CER.USERACCOUNTID AND CER.DATETO IS NULL)
+            WHERE ACC.USERACCOUNTID = :USERACCOUNTID
+        </query>
+    </named-native-query>
+
+    <named-native-query name="admProjectBySysname">
+        <query>
+            SELECT
+            CORE_PROJECT.PROJECTID,
+            CORE_PROJECT.PROJECTSYSNAME,
+            CORE_PROJECT.PROJECTNAME,
+            CORE_PROJECT.MAINMENUID,
+            CORE_PROJECT.DEFAULTLANGUAGEID,
+            CORE_PROJECT.PROJECTDESCR,
+            CORE_PROJECT.USEASDEFAULT,
+            CORE_PROJECT.METADATAURL,
+            CORE_PROJECT.USERMETADATAURL
+            FROM
+            CORE_PROJECT
+            WHERE
+            CORE_PROJECT.PROJECTSYSNAME = :PROJECTSYSNAME
+        </query>
+    </named-native-query>
+
+    <named-native-query name="checkExist">
+        <query>
+            <![CDATA[
+            SELECT COUNT(*) AS QTY
+            FROM CORE_USERACCOUNT
+            WHERE CORE_USERACCOUNT.LOGIN = :VALUE
+            ]]>
+        </query>
+    </named-native-query>
+
+    <named-native-query name="admAccountAdd">
+        <query><![CDATA[
+            INSERT INTO
+                CORE_USERACCOUNT (USERACCOUNTID,
+                                  USERID,
+                                  LOGIN,
+                                  PASSWORD,
+                                  STATUS,
+                                  CREATIONDATE,
+                                  PREFLANGUAGE,
+                                  AUTHMETHOD,
+                                  DESCRIPTION,
+                                  FAILEDLOGINS,
+                                  PWDEXPDATE,
+                                  LASTLOGOUTEVENT,
+                                  LOGOUTDUETO,
+                                  EXTERNALID,
+                                  ISCONCURRENT)
+            VALUES (:USERACCOUNTID,
+                    :USERID,
+                    :LOGIN,
+                    :PASSWORD,
+                    :STATUS,
+                    :CREATIONDATE,
+                    1,
+                    :AUTHMETHOD,
+                    :DESCRIPTION,
+                    0,
+                    :PWDEXPDATE,
+                    NULL,
+                    NULL,
+                    :EXTERNALID,
+                    :ISCONCURRENT)
+            ]]>
+        </query>
+    </named-native-query>
+
+    <named-native-query name="UPDATEUSERLOGINTIME">
+        <query><![CDATA[
+            UPDATE CORE_USERACCOUNT
+            SET LASTLOGINEVENT = :LASTLOGINEVENT,
+                FAILEDLOGINS   = 0
+            WHERE USERACCOUNTID = :USERACCOUNTID
+            ]]></query>
+    </named-native-query>
+
+    <named-native-query name="admAccountFindCount">
+        <query><![CDATA[
+            SELECT COUNT(*)
+            FROM CORE_USERACCOUNT ACC
+                INNER JOIN CORE_USER USR ON ACC.USERID = USR.USERID
+                LEFT JOIN DEP_EMPLOYEE DE ON DE.EMPLOYEEID = USR.OBJECTID
+                LEFT JOIN CORE_PARTICIPANT CP ON CP.PARTICIPANTID = USR.OBJECTID
+            #chunk($ROLE)LEFT JOIN CORE_ROLEACCOUNT RA ON RA.USERACCOUNTID = ACC.USERACCOUNTID #chunk($TODATE) AND (RA.TODATE = 0 OR RA.TODATE IS NULL OR RA.TODATE > $TODATE) #end #end
+            #chunk($GROUP)LEFT JOIN CORE_USERINGROUP UG ON UG.USERID = USR.USERID #end
+            WHERE
+            (1=1)
+            AND (:STATUS IS NULL OR (ACC.STATUS = :STATUS))
+            #chunk($LOGIN) AND ACC.LOGIN LIKE '$LOGIN%' #end
+            AND (:PHONE IS NULL OR (DE.PHONE1 = :PHONE OR DE.PHONE2 = :PHONE))
+            AND (:EMAIL IS NULL OR (DE.EMAIL = :EMAIL))
+            #chunk($ROLE) AND RA.ROLEID = $ROLE #end
+            #chunk($GROUP) AND UG.GROUPID = $GROUP #end
+            AND (:DEPARTMENT IS NULL OR (DE.DEPARTMENTID IN (:DEPARTMENT)))
+            AND (:EMPLOYEENAME IS NULL OR (DE.LASTNAME LIKE :EMPLOYEENAME
+            OR DE.FIRSTNAME LIKE :EMPLOYEENAME
+            OR DE.MIDDLENAME LIKE :EMPLOYEENAME
+            OR CP.PARTICIPANTNAME LIKE :EMPLOYEENAME))
+            AND (:OBJECTTYPE IS NULL OR (USR.OBJECTTYPE = :OBJECTTYPE))
+            AND (:USERID IS NULL OR (USR.USERID = :USERID))
+            ]]></query>
+    </named-native-query>
+
+    <named-native-query name="admAccountFind">
+        <query> <![CDATA[
+            SELECT
+                ACC.USERACCOUNTID,
+                USR.USERID,
+                USR.OBJECTID,
+                USR.OBJECTTYPE,
+                ACC.LOGIN,
+                ACC.STATUS,
+                ACC.CREATIONDATE,
+                ACC.DESCRIPTION,
+                USR.BLOCKIFINACTIVE,
+                DE.EMAIL,
+                CASE
+                WHEN USR.OBJECTTYPE = 1
+                    THEN nvl(DE.LASTNAME, '') || ' ' || nvl(DE.FIRSTNAME, '') || ' ' || nvl(DE.MIDDLENAME, '')
+                ELSE CP.PARTICIPANTNAME
+                END AS EMPLOYEENAME,
+                DE.LASTNAME,
+                DE.FIRSTNAME,
+                DE.MIDDLENAME
+                       #chunk($CURRENT_DATE), CASE WHEN ( ACC.PWDEXPDATE > $CURRENT_DATE OR ACC.PWDEXPDATE IS NULL) THEN 0 ELSE 1 END AS EXPIRED #end
+            FROM CORE_USERACCOUNT ACC
+            INNER JOIN CORE_USER USR ON ACC.USERID = USR.USERID
+            LEFT JOIN DEP_EMPLOYEE DE ON DE.EMPLOYEEID = USR.OBJECTID
+            LEFT JOIN CORE_PARTICIPANT CP ON CP.PARTICIPANTID = USR.OBJECTID
+            #chunk($ROLE)LEFT JOIN CORE_ROLEACCOUNT RA ON RA.USERACCOUNTID = ACC.USERACCOUNTID #chunk($TODATE) AND (RA.TODATE = 0 OR RA.TODATE IS NULL OR RA.TODATE > $TODATE) #end #end
+            #chunk($GROUP)LEFT JOIN CORE_USERINGROUP UG ON UG.USERID = USR.USERID #end
+            WHERE
+            (1=1)
+            AND (:STATUS IS NULL OR (ACC.STATUS = :STATUS))
+            #chunk($LOGIN) AND ACC.LOGIN LIKE '$LOGIN%' #end
+            AND (:PHONE IS NULL OR (DE.PHONE1 = :PHONE OR DE.PHONE2 = :PHONE))
+            AND (:EMAIL IS NULL OR (DE.EMAIL = :EMAIL))
+            #chunk($ROLE) AND RA.ROLEID = $ROLE#end
+            #chunk($GROUP) AND UG.GROUPID = $GROUP#end
+            AND (:DEPARTMENT IS NULL OR (DE.DEPARTMENTID IN (:DEPARTMENT)))
+            AND (:EMPLOYEENAME IS NULL OR (DE.LASTNAME LIKE :EMPLOYEENAME
+            OR DE.FIRSTNAME LIKE :EMPLOYEENAME
+            OR DE.MIDDLENAME LIKE :EMPLOYEENAME
+            OR CP.PARTICIPANTNAME LIKE :EMPLOYEENAME))
+            AND (:OBJECTTYPE IS NULL OR (USR.OBJECTTYPE = :OBJECTTYPE))
+            AND (:USERID IS NULL OR (USR.USERID = :USERID))
+            #chunk($ORDERBY) ORDER BY $ORDERBY #end
+            ]]>
+        </query>
+    </named-native-query>
+
+    <!--<named-native-query name="getAreaByNative" result-class="org.hibernate.test.annotations.query.Area" result-set-mapping="list">-->
+    <!--<query>select * from tbl_area</query>-->
+    <!--</named-native-query>-->
+    <!--<sql-result-set-mapping name="sqlmapping">-->
+    <!--<entity-result entity-class="org.hibernate.test.annotations.query.Night">-->
+    <!--<field-result name="id" column="id"/>-->
+    <!--<field-result name="duration" column="night_duration"/>-->
+    <!--<field-result name="date" column="dte"/>-->
+    <!--<field-result name="area" column="area_id"/>-->
+    <!--</entity-result>-->
+    <!--</sql-result-set-mapping>-->
+</entity-mappings>

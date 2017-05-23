@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dataset>
+    <!--  Клиент  -->
+    <SAD_ENTITY ID="10300" ISMETAENTITY="1" NAME="Клиент" TABLENAME="CDM_Client" NOTE="Клиент" SYSNAME="Client" MODULEID="10010"/>
+
+    <SAD_ATTRIBUTE ID="10312" ENTITYID="10300" CATEGORY="1" FIELDNAME="ИД сущности" DATATYPE="java.lang.Long" IsPrimaryKey="0"
+                   SYSNAME="EID" REFENTITYID="10200" REFATTRIBUTEID="10211"/>
+    <SAD_ATTRIBUTE ID="10311" ENTITYID="10300" CATEGORY="1" FIELDNAME="ИД объекта" DATATYPE="java.lang.Long" IsPrimaryKey="1"
+                   SYSNAME="ID"/>
+
+    <!--  Аккаунт клиента  на Клиента-->
+    <SAD_ATTRIBUTE ID="10214" ENTITYID="10200" CATEGORY="2" FIELDNAME="Клиент" DATATYPE="java.lang.Long"
+                   SYSNAME="ClientID" REFENTITYID="10300" REFATTRIBUTEID="10311" IsPrimaryKey="0"/>
+    <!--  Адреса Клиента на Клиента-->
+    <SAD_ATTRIBUTE ID="12012" ENTITYID="12000" CATEGORY="2" FIELDNAME="Клиент" DATATYPE="java.lang.Long"
+                   SYSNAME="ClientID" REFENTITYID="10300" REFATTRIBUTEID="10311" IsPrimaryKey="0"/>
+    <!--  Документ клиентана Клиента-->
+    <SAD_ATTRIBUTE ID="11712" ENTITYID="11700" CATEGORY="2" FIELDNAME="Клиент" DATATYPE="java.lang.Long"
+                   SYSNAME="ClientID" REFENTITYID="10300" REFATTRIBUTEID="10311" IsPrimaryKey="0"/>
+    <!--  Контакт Клиента на Клиента-->
+    <SAD_ATTRIBUTE ID="11012" ENTITYID="11000" CATEGORY="2" FIELDNAME="Клиент" DATATYPE="java.lang.Long"
+                   SYSNAME="ClientID" REFENTITYID="10300" REFATTRIBUTEID="10311" IsPrimaryKey="0"/>
+    <!-- контрагент ссылается на клиента -->
+    <SAD_ATTRIBUTE ID="10513" ENTITYID="10500" CATEGORY="2" FIELDNAME="Клиент" DATATYPE="java.lang.Long"
+                   SYSNAME="ClientID" REFENTITYID="10300" REFATTRIBUTEID="10311" IsPrimaryKey="0"/>
+
+    <!-- признак клиента ссылается на клиента -->
+    <SAD_ATTRIBUTE ID="102120" ENTITYID="102060" CATEGORY="2" FIELDNAME="Клиент" DATATYPE="java.lang.Long"
+                   SYSNAME="ClientID" REFENTITYID="10300" REFATTRIBUTEID="10311" IsPrimaryKey="0"/>
+    <!-- Наблюдатель договора страхования ссылается на клиента -->
+    <SAD_ATTRIBUTE ID="102127" ENTITYID="102070" CATEGORY="2" FIELDNAME="Клиент" DATATYPE="java.lang.Long"
+                   SYSNAME="ClientID" REFENTITYID="10300" REFATTRIBUTEID="10311" IsPrimaryKey="0"/>
+
+
+    <SAD_ATTRIBUTE ID="10314" ENTITYID="10300" CATEGORY="3" FIELDNAME="Документы" DATATYPE="java.lang.Long"
+                   SYSNAME="Documents" REFENTITYID="11700" REFATTRIBUTEID="11712" IsPrimaryKey="0"/>
+    <SAD_ATTRIBUTE ID="10315" ENTITYID="10300" CATEGORY="3" FIELDNAME="Адреса" DATATYPE="java.lang.Long"
+                   SYSNAME="Addresses" REFENTITYID="12000" REFATTRIBUTEID="12012"/>
+    <SAD_ATTRIBUTE ID="10316" ENTITYID="10300" CATEGORY="3" FIELDNAME="Контакты" DATATYPE="java.lang.Long"
+                   SYSNAME="Contacts" REFENTITYID="11000" REFATTRIBUTEID="11012"/>
+    <SAD_ATTRIBUTE ID="10317" ENTITYID="10300" CATEGORY="3" FIELDNAME="Контрагенты" DATATYPE="java.lang.Long"
+                   SYSNAME="Persons" REFENTITYID="10500" REFATTRIBUTEID="10513"/>
+
+</dataset>

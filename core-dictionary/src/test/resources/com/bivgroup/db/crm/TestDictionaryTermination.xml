@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dataset>
+
+    <!--  Заявление по договору страхования  -->
+    <SAD_ENTITY ID="102100" ISMETAENTITY="1" NAME="Заявление по договору страхования" TABLENAME="PD_Declaration" NOTE="Заявление по договору страхования" SYSNAME="DeclarationForContract" MODULEID="10110"/>
+
+    <SAD_ATTRIBUTE ID="102301" ENTITYID="102100" CATEGORY="1" FIELDNAME="ИД объекта" DATATYPE="java.lang.Long" IsPrimaryKey="1"
+                   SYSNAME="ID" MODULEID="10110"/>
+    <SAD_ATTRIBUTE ID="102302" ENTITYID="102100" CATEGORY="1" FIELDNAME="ИД сущности" DATATYPE="java.lang.Long"
+                   SYSNAME="EID" MODULEID="10110"/>
+    <SAD_ATTRIBUTE ID="102303" ENTITYID="102100" CATEGORY="1" FIELDNAME="Дата создания" DATATYPE="java.sql.Timestamp"
+                   SYSNAME="CreateDate" MODULEID="10110"/>
+    <SAD_ATTRIBUTE ID="102304" ENTITYID="102100" CATEGORY="1" FIELDNAME="Создавший" DATATYPE="java.lang.Long"
+                   SYSNAME="CreateUser" MODULEID="10110"/>
+    <SAD_ATTRIBUTE ID="102305" ENTITYID="102100" CATEGORY="1" FIELDNAME="Дата изменения" DATATYPE="java.sql.Timestamp"
+                   SYSNAME="UpdateDate" MODULEID="10110"/>
+    <SAD_ATTRIBUTE ID="102306" ENTITYID="102100" CATEGORY="1" FIELDNAME="Изменивший" DATATYPE="java.lang.Long"
+                   SYSNAME="UpdateUser" MODULEID="10110"/>
+    <SAD_ATTRIBUTE ID="102307" ENTITYID="102100" CATEGORY="1" FIELDNAME="Дата последнего документа" DATATYPE="java.sql.Timestamp"
+                   SYSNAME="DateLastDoc" MODULEID="10110"/>
+    <SAD_ATTRIBUTE ID="102308" ENTITYID="102100" CATEGORY="1" FIELDNAME="Договор страхования" DATATYPE="java.lang.Long"
+                   SYSNAME="ContractID" MODULEID="10110"/>
+    <SAD_ATTRIBUTE ID="102309" ENTITYID="102100" CATEGORY="1" FIELDNAME="Номер заявления" DATATYPE="java.lang.String"
+                   SYSNAME="DeclarationNumber" MODULEID="10110"/>
+    <SAD_ATTRIBUTE ID="102310" ENTITYID="102100" CATEGORY="1" FIELDNAME="Дата заявления" DATATYPE="java.sql.Timestamp"
+                   SYSNAME="DeclarationDate" MODULEID="10110"/>
+    <SAD_ATTRIBUTE ID="102311" ENTITYID="102100" CATEGORY="1" FIELDNAME="Инициатор заявления" DATATYPE="java.lang.Integer"
+                   SYSNAME="Initiator" MODULEID="10110"/>
+    <SAD_ATTRIBUTE ID="102312" ENTITYID="102100" CATEGORY="1" FIELDNAME="Дата предполагаемого вступления" DATATYPE="java.sql.Timestamp"
+                   SYSNAME="SupposedDateOfEntry" MODULEID="10110"/>
+    <SAD_ATTRIBUTE ID="102313" ENTITYID="102100" CATEGORY="1" FIELDNAME="Дата отправления" DATATYPE="java.sql.Timestamp"
+                   SYSNAME="DepartureDate" MODULEID="10110"/>
+    <SAD_ATTRIBUTE ID="102314" ENTITYID="102100" CATEGORY="1" FIELDNAME="Входящий номер (канцелярия)" DATATYPE="java.lang.String"
+                   SYSNAME="IncomingNumber" MODULEID="10110"/>
+    <SAD_ATTRIBUTE ID="102315" ENTITYID="102100" CATEGORY="1" FIELDNAME="Входящий дата (канцелярия)" DATATYPE="java.sql.Timestamp"
+                   SYSNAME="IncomingDate" MODULEID="10110"/>
+    <SAD_ATTRIBUTE ID="102316" ENTITYID="102100" CATEGORY="1" FIELDNAME="Дата приема" DATATYPE="java.sql.Timestamp"
+                   SYSNAME="ReceivingDate" MODULEID="10110"/>
+    <SAD_ATTRIBUTE ID="102317" ENTITYID="102100" CATEGORY="1" FIELDNAME="Изменение премии" DATATYPE="java.lang.Float"
+                   SYSNAME="ChangePremValue" MODULEID="10110"/>
+    <SAD_ATTRIBUTE ID="102318" ENTITYID="102100" CATEGORY="1" FIELDNAME="Дата вступления" DATATYPE="java.sql.Timestamp"
+                   SYSNAME="DateOfEntry" MODULEID="10110"/>
+    <SAD_ATTRIBUTE ID="102325" ENTITYID="102100" CATEGORY="1" FIELDNAME="Тип получателя" DATATYPE="java.lang.Integer"
+                   SYSNAME="TypeRecipient" MODULEID="10110"/>
+    <SAD_ATTRIBUTE ID="102326" ENTITYID="102100" CATEGORY="1" FIELDNAME="Оригинал получен" DATATYPE="java.lang.Integer"
+                   SYSNAME="IsExistOriginal" MODULEID="10110"/>
+
+    <!-- Сообщение пользователя -->
+    <SAD_ENTITY ID="102110" ISMETAENTITY="1" NAME="Сообщение пользователя" TABLENAME="SD_UserPost" NOTE="Сообщение пользователя" SYSNAME="UserPost" MODULEID="10110"/>
+    <SAD_ATTRIBUTE ID="102401" ENTITYID="102110" CATEGORY="1" FIELDNAME="ИД объекта" DATATYPE="java.lang.Long" IsPrimaryKey="1"
+                   SYSNAME="ID" MODULEID="10110"/>
+    <SAD_ATTRIBUTE ID="102402" ENTITYID="102110" CATEGORY="1" FIELDNAME="ИД сущности" DATATYPE="java.lang.Long"
+                   SYSNAME="EID" MODULEID="10110"/>
+    <SAD_ATTRIBUTE ID="102403" ENTITYID="102110" CATEGORY="1" FIELDNAME="Дата создания" DATATYPE="java.sql.Timestamp"
+                   SYSNAME="CreateDate" MODULEID="10110"/>
+    <SAD_ATTRIBUTE ID="102404" ENTITYID="102110" CATEGORY="1" FIELDNAME="Создавший" DATATYPE="java.lang.Long"
+                   SYSNAME="CreateUser" MODULEID="10110"/>
+    <SAD_ATTRIBUTE ID="102405" ENTITYID="102110" CATEGORY="1" FIELDNAME="Описание" DATATYPE="java.lang.String"
+                   SYSNAME="Note" MODULEID="10110"/>
+    <SAD_ATTRIBUTE ID="102406" ENTITYID="102110" CATEGORY="1" FIELDNAME="Заявление по страховому событию" DATATYPE="java.lang.Long"
+                   SYSNAME="CHNotificationID" MODULEID="10110"/>
+
+</dataset>

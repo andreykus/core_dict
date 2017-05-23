@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+<!--
+  ~ Hibernate, Relational Persistence for Idiomatic Java
+  ~
+  ~ License: GNU Lesser General Public License (LGPL), version 2.1 or later.
+  ~ See the lgpl.txt file in the root directory or <http://www.gnu.org/licenses/lgpl-2.1.html>.
+  -->
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+                 version="1.0">
+
+    <named-native-query name="depEmployeeInfoByID">
+        <query>
+            SELECT
+            DEP_EMPLOYEE.EMPLOYEEID AS EMPLOYEEID,
+            DEP_EMPLOYEE.DEPARTMENTID AS DEPARTMENTID,
+            DEP_EMPLOYEE.POSITION AS POSITION,
+            DEP_EMPLOYEE.MANAGER,
+            DEP_EMPLOYEE.LASTNAME || ' ' || DEP_EMPLOYEE.FIRSTNAME || ' ' || DEP_EMPLOYEE.MIDDLENAME AS EMPLOYEENAME,
+            DEP_EMPLOYEE.LASTNAME,
+            DEP_EMPLOYEE.FIRSTNAME,
+            DEP_EMPLOYEE.MIDDLENAME,
+            DEP_EMPLOYEE.PHONE1 AS PHONE1,
+            DEP_EMPLOYEE.PHONE2 AS PHONE2,
+            DEP_EMPLOYEE.EMAIL AS EMAIL,
+            DEP_DEPARTMENT.DEPTSHORTNAME AS DEPARTMENTNAME
+            FROM
+            DEP_EMPLOYEE,
+            DEP_DEPARTMENT
+            WHERE
+            DEP_DEPARTMENT.DEPARTMENTID = DEP_EMPLOYEE.DEPARTMENTID AND
+            DEP_EMPLOYEE.EMPLOYEEID = :EMPLOYEEID
+        </query>
+    </named-native-query>
+
+    <named-native-query name="depEmployeeInfoFull">
+        <query>
+            SELECT
+            DEP_EMPLOYEE.EMPLOYEEID,
+            DEP_EMPLOYEE.PARTICIPANTID,
+            DEP_EMPLOYEE.CODE,
+            DEP_EMPLOYEE.POSITION,
+            DEP_EMPLOYEE.DEPARTMENTID,
+            DEP_EMPLOYEE.STARTWORKDATE,
+            DEP_EMPLOYEE.ENDWORKDATE,
+            DEP_EMPLOYEE.STATUS,
+            DEP_EMPLOYEE.MANAGER,
+            DEP_EMPLOYEE.PHONE1,
+            DEP_EMPLOYEE.PHONE2,
+            DEP_EMPLOYEE.EMAIL,
+            DEP_EMPLOYEE.LASTNAME,
+            DEP_EMPLOYEE.MIDDLENAME,
+            DEP_EMPLOYEE.FIRSTNAME,
+            nvl(DEP_EMPLOYEE.LASTNAME,
+            '') || ' ' || nvl(DEP_EMPLOYEE.FIRSTNAME, '') || ' ' || nvl(DEP_EMPLOYEE.MIDDLENAME, '') AS EMPLOYEENAME
+            FROM
+            DEP_EMPLOYEE WHERE
+            DEP_EMPLOYEE.EMPLOYEEID = :EMPLOYEEID
+        </query>
+    </named-native-query>
+
+    <named-native-query name="depEmployeeAdd">
+        <query>
+            INSERT INTO DEP_EMPLOYEE (EMPLOYEEID, PARTICIPANTID, CODE,
+            POSITION, DEPARTMENTID , STARTWORKDATE, ENDWORKDATE, STATUS,
+            MANAGERID, EMPLOYEENAME, PHONE1, PHONE2, EMAIL) VALUES (:EMPLOYEEID, :PARTICIPANTID, :EMPCODE,
+            :EMPPOSITION, :DEPARTMENTID , :STARTWORKDATE, :ENDWORKDATE, :EMPSTATUS,
+            :MANAGERID, :EMPLOYEENAME, :PHONE1, :PHONE2, :EMAIL)
+        </query>
+    </named-native-query>
+
+    <named-native-query name="depEmployeeUpdate">
+        <query><![CDATA[
+            UPDATE
+            DEP_EMPLOYEE
+            SET
+            #chunk($CODE) CODE = $CODE, #end
+            #chunk($POSITION) POSITION = '$POSITION', #end
+            STARTWORKDATE = :STARTWORKDATE,
+            ENDWORKDATE = :ENDWORKDATE,
+            #chunk($MANAGER)MANAGER = $MANAGER, #end
+            #chunk($STATUS)STATUS = '$STATUS', #end
+            #chunk($LASTNAME)LASTNAME = '$LASTNAME', #end
+            #chunk($FIRSTNAME)FIRSTNAME = '$FIRSTNAME', #end
+            #chunk($MIDDLENAME)MIDDLENAME = '$MIDDLENAME', #end
+            #chunk($PHONE1)PHONE1 = '$PHONE1', #end
+            #chunk($PHONE2)PHONE2 = '$PHONE2', #end
+            #chunk($EMAIL)EMAIL = '$EMAIL', #end
+            DEPARTMENTID = :DEPARTMENTID
+            WHERE
+            DEP_EMPLOYEE.EMPLOYEEID = :EMPLOYEEID
+            ]]>
+        </query>
+    </named-native-query>
+
+    <named-native-query name="depEmployeeGetUserID">
+        <query>
+            SELECT U.USERID
+            FROM
+            DEP_EMPLOYEE E JOIN CORE_USER U ON E.EMPLOYEEID = U.OBJECTID AND U.OBJECTTYPE = 1
+            WHERE
+            E.EMPLOYEEID = :EMPLOYEEID
+        </query>
+    </named-native-query>
+
+    <named-native-query name="depEmployeeByID">
+        <query>
+            SELECT
+            CORE_USER.STATUS as USERSTATUS,
+            CORE_USER.OBJECTTYPE,
+            CORE_USER.BLOCKIFINACTIVE,
+            DEP_EMPLOYEE.EMPLOYEEID as EMPLOYEEID,
+            DEP_EMPLOYEE.DEPARTMENTID as DEPARTMENTID,
+            DEP_EMPLOYEE.POSITION as POSITION,
+            nvl(DEP_EMPLOYEE.LASTNAME,'') || ' ' || nvl(DEP_EMPLOYEE.FIRSTNAME,'') || ' ' ||
+            nvl(DEP_EMPLOYEE.MIDDLENAME,'') AS EMPLOYEENAME,
+            DEP_EMPLOYEE.LASTNAME, DEP_EMPLOYEE.FIRSTNAME, DEP_EMPLOYEE.MIDDLENAME,
+            DEP_EMPLOYEE.PHONE1 AS PHONE1,
+            DEP_EMPLOYEE.PHONE2 AS PHONE2,
+            DEP_EMPLOYEE.EMAIL AS EMAIL,
+            DEP_DEPARTMENT.DEPTSHORTNAME as DEPARTMENTNAME,
+            'true' as ISEMPLOYEE
+            FROM
+            CORE_USER,
+            DEP_EMPLOYEE,
+            DEP_DEPARTMENT
+            WHERE
+            CORE_USER.STATUS != 'DELETED' AND
+            CORE_USER.OBJECTID = DEP_EMPLOYEE.EMPLOYEEID AND
+            DEP_DEPARTMENT.DEPARTMENTID = DEP_EMPLOYEE.DEPARTMENTID AND
+            DEP_EMPLOYEE.EMPLOYEEID = :EMPLOYEEID
+        </query>
+    </named-native-query>
+
+</entity-mappings>

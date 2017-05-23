@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dataset>
+
+
+    <!-- Участник договора (физическое лицо)  -->
+    <SAD_ENTITY ID="100900" ISMETAENTITY="1" NAME="Участник договора (физическое лицо)" TABLENAME="PD_Contract_PMember" NOTE="Участник договора (физическое лицо)" SYSNAME="ContractPMember" PARENTID="10600" MODULEID="10010"/>
+
+    <!--  Тип участника на Классификатор типов участников по договору страхования-->
+    <SAD_ATTRIBUTE ID="100915" ENTITYID="100900" CATEGORY="2" FIELDNAME="Тип участника" DATATYPE="java.lang.Long"
+                   SYSNAME="TypeID" REFENTITYID="100800" REFATTRIBUTEID="100811" IsPrimaryKey="0"/>
+
+    <SAD_ATTRIBUTE ID="100911" ENTITYID="100900" CATEGORY="1" FIELDNAME="ИД объекта" DATATYPE="java.lang.Long" IsPrimaryKey="1"
+                   SYSNAME="ID"/>
+    <SAD_ATTRIBUTE ID="100912" ENTITYID="100900" CATEGORY="1" FIELDNAME="Договор страхования" DATATYPE="java.lang.Long"
+                   SYSNAME="ContractID"/>
+    <SAD_ATTRIBUTE ID="100913" ENTITYID="100900" CATEGORY="1" FIELDNAME="Дата начала" DATATYPE="java.sql.Timestamp"
+                   SYSNAME="StartDate"/>
+    <SAD_ATTRIBUTE ID="100914" ENTITYID="100900" CATEGORY="1" FIELDNAME="Дата окончания" DATATYPE="java.sql.Timestamp"
+                   SYSNAME="EndDate"/>
+
+    <!-- Водитель по договору страхования  -->
+    <SAD_ENTITY ID="101000" ISMETAENTITY="1" NAME="Водитель по договору страхования " TABLENAME="PD_Contract_Driver" NOTE="Водитель по договору страхования " SYSNAME="ContractDriver" PARENTID="100900" MODULEID="10010"/>
+
+    <SAD_ATTRIBUTE ID="101011" ENTITYID="101000" CATEGORY="1" FIELDNAME="ИД объекта" DATATYPE="java.lang.Long" IsPrimaryKey="1"
+                   SYSNAME="ID"/>
+    <SAD_ATTRIBUTE ID="101012" ENTITYID="101000" CATEGORY="1" FIELDNAME="Дата начала стажа вождения" DATATYPE="java.util.Date"
+                   SYSNAME="DateOfExp"/>
+
+
+</dataset>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dataset>
+    <!-- Удалим все объекты -->
+
+    <SAD_MODULE/>
+    <SAD_ASPECT/>
+    <SAD_ENTITY/>
+    <SAD_ENTITY_ASPECT/>
+    <SAD_ATTRIBUTE/>
+    <SAD_VERSION/>
+    <SAD_DEPENDENCY/>
+    <SAD_ENTITY_ASPECT/>
+    <SAD_MODULE_VERSION/>
+    <SAD_ATTRIBUTE_CFG/>
+    <SAD_ATTRIBUTE_STRUCTURE/>
+
+</dataset>

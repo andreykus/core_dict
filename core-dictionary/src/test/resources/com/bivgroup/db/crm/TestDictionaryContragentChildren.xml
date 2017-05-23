@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dataset>
+    <!--  Дети физического лица -->
+    <SAD_ENTITY ID="100200" ISMETAENTITY="1" NAME="Дети физического лица" TABLENAME="CDM_PPerson_Child" NOTE="Дети физического лица" SYSNAME="PPersonChild" MODULEID="10010"/>
+
+    <SAD_ATTRIBUTE ID="100211" ENTITYID="100200" CATEGORY="1" FIELDNAME="ИД объекта" DATATYPE="java.lang.Long" IsPrimaryKey="1"
+                   SYSNAME="ID"/>
+    <SAD_ATTRIBUTE ID="100212" ENTITYID="100200" CATEGORY="1" FIELDNAME="ИД сущности" DATATYPE="java.lang.Long"
+                   SYSNAME="EID"/>
+
+
+    <SAD_ATTRIBUTE ID="100214" ENTITYID="100200" CATEGORY="1" FIELDNAME="Имя" DATATYPE="java.lang.String"
+                   SYSNAME="Name"/>
+    <SAD_ATTRIBUTE ID="100215" ENTITYID="100200" CATEGORY="1" FIELDNAME="Дата рождения" DATATYPE="java.util.Date"
+                   SYSNAME="DateOfBirth"/>
+
+</dataset>

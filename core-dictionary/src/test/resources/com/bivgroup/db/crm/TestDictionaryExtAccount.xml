@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dataset>
+    <!-- ключ на Профиль клиента-->
+    <SAD_ATTRIBUTE ID="102159" ENTITYID="102050" CATEGORY="2" FIELDNAME="Аккаунт клиента" DATATYPE="java.lang.Long"
+                   SYSNAME="ClientProfileID" REFENTITYID="10200" REFATTRIBUTEID="10211"/>
+    <!-- событие на ключ-->
+    <SAD_ATTRIBUTE ID="102098" ENTITYID="102040" CATEGORY="2" FIELDNAME="Токен" DATATYPE="java.lang.Long"
+                   SYSNAME="TokenID" REFENTITYID="102050" REFATTRIBUTEID="102151"/>
+    <!-- событие на Профиль клиента-->
+    <SAD_ATTRIBUTE ID="102099" ENTITYID="102040" CATEGORY="2" FIELDNAME="Аккаунт клиента" DATATYPE="java.lang.Long"
+                   SYSNAME="ClientProfileID" REFENTITYID="10200" REFATTRIBUTEID="10211"/>
+    <!-- событие на Классификатор типов события акаунта клиента-->
+    <SAD_ATTRIBUTE ID="102100" ENTITYID="102040" CATEGORY="2" FIELDNAME="Тип события" DATATYPE="java.lang.Long"
+                   SYSNAME="EventTypeID" REFENTITYID="102030" REFATTRIBUTEID="102031"/>
+
+    <!-- Профиль клиента на события-->
+    <SAD_ATTRIBUTE ID="10215" ENTITYID="10200" CATEGORY="3" FIELDNAME="События" DATATYPE="java.lang.Long" IsPrimaryKey="0"
+                   SYSNAME="Events" REFENTITYID="102040" REFATTRIBUTEID="102099"/>
+    <!-- Профиль клиента на ключи-->
+    <SAD_ATTRIBUTE ID="10216" ENTITYID="10200" CATEGORY="3" FIELDNAME="Токены" DATATYPE="java.lang.Long" IsPrimaryKey="0"
+                   SYSNAME="Tokens" REFENTITYID="102050" REFATTRIBUTEID="102159"/>
+
+
+</dataset>

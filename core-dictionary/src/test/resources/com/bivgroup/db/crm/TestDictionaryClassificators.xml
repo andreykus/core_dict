@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dataset>
+    <!-- Классификатор типов контакта -->
+    <SAD_ENTITY ID="10900" ISMETAENTITY="1" NAME="Классификатор типов контактов" TABLENAME="HB_KindContact"
+                NOTE="Классификатор типов контактов" SYSNAME="KindContact" MODULEID="10010" TYPEENTITY="1"/>
+    <SAD_ATTRIBUTE ID="10911" ENTITYID="10900" CATEGORY="1" FIELDNAME="ИД объекта" DATATYPE="java.lang.Long"
+                   IsPrimaryKey="1"
+                   SYSNAME="ID" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="10912" ENTITYID="10900" CATEGORY="1" FIELDNAME="ИД сущности" DATATYPE="java.lang.Long"
+                   SYSNAME="EID" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="10913" ENTITYID="10900" CATEGORY="1" FIELDNAME="Наименование" DATATYPE="java.lang.String"
+                   SYSNAME="Name" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="10914" ENTITYID="10900" CATEGORY="1" FIELDNAME="Системное имя" DATATYPE="java.lang.String"
+                   SYSNAME="Sysname" MODULEID="10010"/>
+
+    <!-- Классификатор статусов -->
+    <SAD_ENTITY ID="11200" ISMETAENTITY="1" NAME="Классификатор статусов" TABLENAME="HB_KindStatus"
+                NOTE="Классификатор статусов" SYSNAME="KindStatus" MODULEID="10010" TYPEENTITY="1"/>
+    <SAD_ATTRIBUTE ID="11211" ENTITYID="11200" CATEGORY="1" FIELDNAME="ИД объекта" DATATYPE="java.lang.Long"
+                   IsPrimaryKey="1"
+                   SYSNAME="ID" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="11213" ENTITYID="11200" CATEGORY="1" FIELDNAME="Наименование" DATATYPE="java.lang.String"
+                   SYSNAME="Name" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="11214" ENTITYID="11200" CATEGORY="1" FIELDNAME="Системное имя" DATATYPE="java.lang.String"
+                   SYSNAME="Sysname" MODULEID="10010"/>
+
+    <!-- Классификатор  стран -->
+    <SAD_ENTITY ID="11300" ISMETAENTITY="1" NAME="Классификатор  стран" TABLENAME="B2B_COUNTRY"
+                NOTE="Классификатор  стран" SYSNAME="KindCountry" MODULEID="10010" TYPEENTITY="1"/>
+    <SAD_ATTRIBUTE ID="11311" ENTITYID="11300" CATEGORY="1" FIELDNAME="ИД объекта" DATATYPE="java.lang.Long"
+                   IsPrimaryKey="1"
+                   SYSNAME="COUNTRYID" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="11313" ENTITYID="11300" CATEGORY="1" FIELDNAME="Наименование2" DATATYPE="java.lang.String"
+                   SYSNAME="ALPHACODE2" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="11314" ENTITYID="11300" CATEGORY="1" FIELDNAME="Наименование3" DATATYPE="java.lang.String"
+                   SYSNAME="ALPHACODE3" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="11315" ENTITYID="11300" CATEGORY="1" FIELDNAME="Сокращение" DATATYPE="java.lang.String"
+                   SYSNAME="BRIEFNAME" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="11316" ENTITYID="11300" CATEGORY="1" FIELDNAME="Страна" DATATYPE="java.lang.String"
+                   SYSNAME="COUNTRYNAME" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="11317" ENTITYID="11300" CATEGORY="1" FIELDNAME="Код" DATATYPE="java.lang.String"
+                   SYSNAME="DIGITCODE" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="11318" ENTITYID="11300" CATEGORY="1" FIELDNAME="НаименованиеEng" DATATYPE="java.lang.String"
+                   SYSNAME="ENGNAME" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="11319" ENTITYID="11300" CATEGORY="1" FIELDNAME="Флаг" DATATYPE="java.lang.String"
+                   SYSNAME="FLAG" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="11320" ENTITYID="11300" CATEGORY="1" FIELDNAME="Флаг" DATATYPE="java.lang.Long"
+                   SYSNAME="ISNOTUSE" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="11321" ENTITYID="11300" CATEGORY="1" FIELDNAME="Наименование" DATATYPE="java.lang.String"
+                   SYSNAME="NATIVENAME" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="11322" ENTITYID="11300" CATEGORY="1" FIELDNAME="Код телефона" DATATYPE="java.lang.String"
+                   SYSNAME="PHONECODE" MODULEID="10010"/>
+
+    <!-- Классификатор типов документов -->
+    <SAD_ENTITY ID="11400" ISMETAENTITY="1" NAME="Классификатор типов документов" TABLENAME="HB_KindDocument"
+                NOTE="Классификатор типов документов" SYSNAME="KindDocument" MODULEID="10010" TYPEENTITY="1"/>
+    <SAD_ATTRIBUTE ID="11411" ENTITYID="11400" CATEGORY="1" FIELDNAME="ИД объекта" DATATYPE="java.lang.Long"
+                   IsPrimaryKey="1"
+                   SYSNAME="ID" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="11412" ENTITYID="11400" CATEGORY="1" FIELDNAME="ИД сущности" DATATYPE="java.lang.Long"
+                   SYSNAME="EID" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="11413" ENTITYID="11400" CATEGORY="1" FIELDNAME="Наименование" DATATYPE="java.lang.String"
+                   SYSNAME="Name" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="11414" ENTITYID="11400" CATEGORY="1" FIELDNAME="Системное имя" DATATYPE="java.lang.String"
+                   SYSNAME="Sysname" MODULEID="10010"/>
+
+    <!-- Классификатор типов адресов -->
+    <SAD_ENTITY ID="11500" ISMETAENTITY="1" NAME="Классификатор типов адресов" TABLENAME="HB_KindAddress"
+                NOTE="Классификатор типов адресов" SYSNAME="KindAddress" MODULEID="10010" TYPEENTITY="1"/>
+    <SAD_ATTRIBUTE ID="11511" ENTITYID="11500" CATEGORY="1" FIELDNAME="ИД объекта" DATATYPE="java.lang.Long"
+                   IsPrimaryKey="1"
+                   SYSNAME="ID" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="11512" ENTITYID="11500" CATEGORY="1" FIELDNAME="ИД сущности" DATATYPE="java.lang.Long"
+                   SYSNAME="EID" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="11513" ENTITYID="11500" CATEGORY="1" FIELDNAME="Наименование" DATATYPE="java.lang.String"
+                   SYSNAME="Name" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="11514" ENTITYID="11500" CATEGORY="1" FIELDNAME="Системное имя" DATATYPE="java.lang.String"
+                   SYSNAME="Sysname" MODULEID="10010"/>
+
+    <!-- Классификатор типов участников по договору страхования -->
+    <SAD_ENTITY ID="100800" ISMETAENTITY="1" NAME="Классификатор типов участников по договору страхования"
+                TABLENAME="PD_KindContractMember" NOTE="Классификатор типов участников по договору страхования"
+                SYSNAME="KindContractMember" MODULEID="10010" TYPEENTITY="1"/>
+    <SAD_ATTRIBUTE ID="100811" ENTITYID="100800" CATEGORY="1" FIELDNAME="ИД объекта" DATATYPE="java.lang.Long"
+                   IsPrimaryKey="1"
+                   SYSNAME="ID" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="100812" ENTITYID="100800" CATEGORY="1" FIELDNAME="ИД сущности" DATATYPE="java.lang.Long"
+                   SYSNAME="EID" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="100813" ENTITYID="100800" CATEGORY="1" FIELDNAME="Наименование" DATATYPE="java.lang.String"
+                   SYSNAME="Name" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="100814" ENTITYID="100800" CATEGORY="1" FIELDNAME="Системное имя" DATATYPE="java.lang.String"
+                   SYSNAME="Sysname" MODULEID="10010"/>
+
+    <!-- Классификатор организационно-правовых форм -->
+    <SAD_ENTITY ID="100100" ISMETAENTITY="1" NAME="Классификатор организационно-правовых форм"
+                TABLENAME="HB_LegalFormsOfBusiness"
+                NOTE="Классификатор организационно-правовых формОрганизационно-правовая форма"
+                SYSNAME="LegalFormsOfBusiness" MODULEID="10010" TYPEENTITY="1"/>
+
+    <SAD_ATTRIBUTE ID="100111" ENTITYID="100100" CATEGORY="1" FIELDNAME="ИД объекта" DATATYPE="java.lang.Long"
+                   IsPrimaryKey="1"
+                   SYSNAME="ID" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="100112" ENTITYID="100100" CATEGORY="1" FIELDNAME="ИД сущности" DATATYPE="java.lang.Long"
+                   SYSNAME="EID" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="100113" ENTITYID="100100" CATEGORY="1" FIELDNAME="Наименование" DATATYPE="java.lang.String"
+                   SYSNAME="Name" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="100114" ENTITYID="100100" CATEGORY="1" FIELDNAME="Тип контрагента" DATATYPE="java.lang.Integer"
+                   SYSNAME="PersonType" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="100115" ENTITYID="100100" CATEGORY="1" FIELDNAME="Системное имя" DATATYPE="java.lang.String"
+                   SYSNAME="Sysname" MODULEID="10010"/>
+
+    <!-- Классификатор ролей наблюдателя -->
+    <SAD_ENTITY ID="102010" ISMETAENTITY="1" NAME="Классификатор ролей наблюдателя" TABLENAME="HD_KindShareRole"
+                NOTE="Классификатор ролей наблюдателя" SYSNAME="KindShareRole" MODULEID="10010" TYPEENTITY="1"/>
+    <SAD_ATTRIBUTE ID="102011" ENTITYID="102010" CATEGORY="1" FIELDNAME="ИД объекта" DATATYPE="java.lang.Long"
+                   IsPrimaryKey="1"
+                   SYSNAME="ID" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102012" ENTITYID="102010" CATEGORY="1" FIELDNAME="ИД сущности" DATATYPE="java.lang.Long"
+                   SYSNAME="EID" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102013" ENTITYID="102010" CATEGORY="1" FIELDNAME="Наименование" DATATYPE="java.lang.String"
+                   SYSNAME="Name" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102014" ENTITYID="102010" CATEGORY="1" FIELDNAME="Системное имя" DATATYPE="java.lang.String"
+                   SYSNAME="Sysname" MODULEID="10010"/>
+
+    <!-- Классификатор типов признаков клиента -->
+    <SAD_ENTITY ID="102020" ISMETAENTITY="1" NAME="Классификатор типов признаков клиента" TABLENAME="HB_KindClientProperty"
+                NOTE="Классификатор типов признаков клиента" SYSNAME="KindClientProperty" MODULEID="10010" TYPEENTITY="1"/>
+    <SAD_ATTRIBUTE ID="102021" ENTITYID="102020" CATEGORY="1" FIELDNAME="ИД объекта" DATATYPE="java.lang.Long"
+                   IsPrimaryKey="1"
+                   SYSNAME="ID" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102022" ENTITYID="102020" CATEGORY="1" FIELDNAME="ИД сущности" DATATYPE="java.lang.Long"
+                   SYSNAME="EID" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102023" ENTITYID="102020" CATEGORY="1" FIELDNAME="Наименование" DATATYPE="java.lang.String"
+                   SYSNAME="Name" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102024" ENTITYID="102020" CATEGORY="1" FIELDNAME="Системное имя" DATATYPE="java.lang.String"
+                   SYSNAME="Sysname" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102025" ENTITYID="102020" CATEGORY="1" FIELDNAME="Тип данных" DATATYPE="java.lang.String"
+                   SYSNAME="DataType" MODULEID="10010"/>
+
+    <!--Классификатор типов события акаунта клиента -->
+    <SAD_ENTITY ID="102030" ISMETAENTITY="1" NAME="Классификатор типов события акаунта клиента" TABLENAME="HB_KindEventClientProfile"
+                NOTE="Классификатор типов события акаунта клиента" SYSNAME="KindEventClientProfile" MODULEID="10010" TYPEENTITY="1"/>
+    <SAD_ATTRIBUTE ID="102031" ENTITYID="102030" CATEGORY="1" FIELDNAME="ИД объекта" DATATYPE="java.lang.Long"
+                   IsPrimaryKey="1"
+                   SYSNAME="ID" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102032" ENTITYID="102030" CATEGORY="1" FIELDNAME="ИД сущности" DATATYPE="java.lang.Long"
+                   SYSNAME="EID" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102033" ENTITYID="102030" CATEGORY="1" FIELDNAME="Наименование" DATATYPE="java.lang.String"
+                   SYSNAME="Name" MODULEID="10010"/>
+    <SAD_ATTRIBUTE ID="102034" ENTITYID="102030" CATEGORY="1" FIELDNAME="Системное имя" DATATYPE="java.lang.String"
+                   SYSNAME="Sysname" MODULEID="10010"/>
+
+
+
+
+    <!--Классификатор оснований расторжения договора страхования -->
+    <SAD_ENTITY ID="102080" ISMETAENTITY="1" NAME="Классификатор оснований расторжения договора страхования" TABLENAME="HD_TerminationReason"
+                NOTE="Классификатор оснований расторжения договора страхования" SYSNAME="TerminationReason" MODULEID="10110" TYPEENTITY="1"/>
+    <SAD_ATTRIBUTE ID="102281" ENTITYID="102080" CATEGORY="1" FIELDNAME="ИД объекта" DATATYPE="java.lang.Long"
+                   IsPrimaryKey="1" SYSNAME="ID" MODULEID="10110"/>
+    <SAD_ATTRIBUTE ID="102282" ENTITYID="102080" CATEGORY="1" FIELDNAME="ИД сущности" DATATYPE="java.lang.Long"
+                   SYSNAME="EID" MODULEID="10110"/>
+    <SAD_ATTRIBUTE ID="102283" ENTITYID="102080" CATEGORY="1" FIELDNAME="Наименование" DATATYPE="java.lang.String"
+                   SYSNAME="Name" MODULEID="10110"/>
+    <SAD_ATTRIBUTE ID="102284" ENTITYID="102080" CATEGORY="1" FIELDNAME="Системное имя" DATATYPE="java.lang.String"
+                   SYSNAME="Sysname" MODULEID="10110"/>
+
+
+    <!--Канал приема-->
+    <SAD_ENTITY ID="102090" ISMETAENTITY="1" NAME="Канал приема" TABLENAME="HD_ReceivingChannel"
+                NOTE="Канал приема" SYSNAME="ReceivingChannel" MODULEID="10110" TYPEENTITY="1"/>
+    <SAD_ATTRIBUTE ID="102291" ENTITYID="102090" CATEGORY="1" FIELDNAME="ИД объекта" DATATYPE="java.lang.Long"
+                   IsPrimaryKey="1" MODULEID="10110" SYSNAME="ID"/>
+    <SAD_ATTRIBUTE ID="102292" ENTITYID="102090" CATEGORY="1" FIELDNAME="ИД сущности" DATATYPE="java.lang.Long"
+                   SYSNAME="EID" MODULEID="10110"/>
+    <SAD_ATTRIBUTE ID="102293" ENTITYID="102090" CATEGORY="1" FIELDNAME="Наименование" DATATYPE="java.lang.String"
+                   SYSNAME="Name" MODULEID="10110"/>
+    <SAD_ATTRIBUTE ID="102294" ENTITYID="102090" CATEGORY="1" FIELDNAME="Системное имя" DATATYPE="java.lang.String"
+                   SYSNAME="Sysname" MODULEID="10110"/>
+    <SAD_ATTRIBUTE ID="102295" ENTITYID="102090" CATEGORY="1" FIELDNAME="Признак 'Требуется указание даты отправления'" DATATYPE="java.lang.Integer"
+                   SYSNAME="IsFillDepartureDate" MODULEID="10110"/>
+
+
+</dataset>

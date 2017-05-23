@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+             version="2.1">
+    <!-- Generate by core-dictionary-plugin for module ${className} -->
+    <persistence-unit name="Crm">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+                <!-- Configuring class Entity -->
+                                    <class>com.bivgroup.crm.LegalFormsOfBusiness</class>
+                            <class>com.bivgroup.crm.ShareContractIns</class>
+                            <class>com.bivgroup.crm.ClientProperty</class>
+                            <class>com.bivgroup.crm.ClientProfile</class>
+                            <class>com.bivgroup.crm.Address</class>
+                            <class>com.bivgroup.crm.EClient_VER</class>
+                            <class>com.bivgroup.crm.ClientProfileEvent</class>
+                            <class>com.bivgroup.crm.ClientAddress</class>
+                            <class>com.bivgroup.crm.Document</class>
+                            <class>com.bivgroup.crm.KindCountry</class>
+                            <class>com.bivgroup.crm.PersonContact</class>
+                            <class>com.bivgroup.crm.PClient</class>
+                            <class>com.bivgroup.crm.JClient_VER</class>
+                            <class>com.bivgroup.crm.ClientProfileToken</class>
+                            <class>com.bivgroup.crm.ClientContact</class>
+                            <class>com.bivgroup.crm.KindEventClientProfile</class>
+                            <class>com.bivgroup.crm.ClientDocument</class>
+                            <class>com.bivgroup.crm.Client</class>
+                            <class>com.bivgroup.crm.KindContact</class>
+                            <class>com.bivgroup.crm.PersonAddress</class>
+                            <class>com.bivgroup.crm.BankDetails</class>
+                            <class>com.bivgroup.crm.ContractDriver</class>
+                            <class>com.bivgroup.crm.PPersonChild</class>
+                            <class>com.bivgroup.crm.JPerson</class>
+                            <class>com.bivgroup.crm.EPerson</class>
+                            <class>com.bivgroup.crm.KindAddress</class>
+                            <class>com.bivgroup.crm.KindContractMember</class>
+                            <class>com.bivgroup.crm.Contact</class>
+                            <class>com.bivgroup.crm.JClient</class>
+                            <class>com.bivgroup.crm.EClient</class>
+                            <class>com.bivgroup.crm.KindDocument</class>
+                            <class>com.bivgroup.crm.KindShareRole</class>
+                            <class>com.bivgroup.crm.KindClientProperty</class>
+                            <class>com.bivgroup.crm.PClient_VER</class>
+                            <class>com.bivgroup.crm.Person</class>
+                            <class>com.bivgroup.crm.KindStatus</class>
+                            <class>com.bivgroup.crm.PPerson</class>
+                            <class>com.bivgroup.crm.PersonDocument</class>
+                            <class>com.bivgroup.crm.ContractPMember</class>
+                            <properties>
+
+            <!-- Hibernate properties -->
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.use_sql_comments" value="true"/>
+            <!-- <property name="hibernate.hbm2ddl.auto" value="update"/>-->
+
+            <!-- Configuring inner hbm.xml-->
+            
+            <property name="jboss.as.jpa.providerModule" value="org.hibernate:5.2.4.Final"/>
+        </properties>
+    </persistence-unit>
+
+</persistence>

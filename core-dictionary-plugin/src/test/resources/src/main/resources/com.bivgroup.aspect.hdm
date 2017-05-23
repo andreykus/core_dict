@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!-- Generated 26.01.2017 16:11:16 unknow unknow -->
+<hibernate-mapping
+            package="com.bivgroup.aspect"
+            default-lazy="false"
+>
+
+<class
+entity-name="BindBinFile"
+table="INS_BINFILE"
+>
+
+<id
+        name="BINFILEID"
+        type="long"
+        >
+
+<column name="BINFILEID" />
+        <generator class="enhanced-sequence">
+                <param name="optimizer">pooled</param>
+                <param name="prefer_sequence_per_entity">true</param>
+                <param name="jpa_entity_name">INS_BINFILE</param>
+                <param name="increment_size">10</param>
+                <param name="sequence_per_entity_suffix">_SEQ</param>
+        </generator>
+</id>
+
+
+
+
+<property
+        name="FILETYPENAME"
+        type="string"
+        >
+        <column
+        name="FILETYPENAME" />
+</property>
+
+<property
+        name="NOTE"
+        type="string"
+        >
+        <column
+        name="NOTE" />
+</property>
+
+<property
+        name="CREATEDATE"
+        type="timestamp"
+        >
+        <column
+        name="CREATEDATE" />
+</property>
+
+<property
+        name="CREATEUSERID"
+        type="long"
+        >
+        <column
+        name="CREATEUSERID" />
+</property>
+
+<property
+        name="OBJTABLENAME"
+        type="string"
+        >
+        <column
+        name="OBJTABLENAME" />
+</property>
+
+<property
+        name="OBJID"
+        type="long"
+        >
+        <column
+        name="OBJID" />
+</property>
+
+<property
+        name="FSID"
+        type="string"
+        >
+        <column
+        name="FSID" />
+</property>
+
+<property
+        name="FILETYPEID"
+        type="long"
+        >
+        <column
+        name="FILETYPEID" />
+</property>
+
+<property
+        name="FILESIZE"
+        type="string"
+        >
+        <column
+        name="FILESIZE" />
+</property>
+
+<property
+        name="FILEPATH"
+        type="string"
+        >
+        <column
+        name="FILEPATH" />
+</property>
+
+<property
+        name="FILENAME"
+        type="string"
+        >
+        <column
+        name="FILENAME" />
+</property>
+
+
+</class>
+
+</hibernate-mapping>
