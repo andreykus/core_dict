@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dataset>
+    <!--  Аккаунт клиента  -->
+    <SAD_ENTITY ID="20001" ISMETAENTITY="1" NAME="Аккаунт клиента" TABLENAME="INS_BINFILE" NOTE="Связь бин файл"
+                SYSNAME="BindBinFile" MODULEID="10001"/>
+
+    <SAD_ATTRIBUTE ID="101" ENTITYID="20001" CATEGORY="1" FIELDNAME="ИД файла" DATATYPE="java.lang.Long"
+                   IsPrimaryKey="1"
+                   SYSNAME="BINFILEID"/>
+    <SAD_ATTRIBUTE ID="102" ENTITYID="20001" CATEGORY="1" FIELDNAME="Название файла" DATATYPE="java.lang.String"
+                   SYSNAME="FILENAME"/>
+    <SAD_ATTRIBUTE ID="103" ENTITYID="20001" CATEGORY="1" FIELDNAME="Путь" DATATYPE="java.lang.String"
+                   SYSNAME="FILEPATH"/>
+    <SAD_ATTRIBUTE ID="104" ENTITYID="20001" CATEGORY="1" FIELDNAME="Размер" DATATYPE="java.lang.String"
+                   SYSNAME="FILESIZE"/>
+    <SAD_ATTRIBUTE ID="105" ENTITYID="20001" CATEGORY="1" FIELDNAME="Тип" DATATYPE="java.lang.Long"
+                   SYSNAME="FILETYPEID"/>
+    <SAD_ATTRIBUTE ID="106" ENTITYID="20001" CATEGORY="1" FIELDNAME="Название типа" DATATYPE="java.lang.String"
+                   SYSNAME="FILETYPENAME"/>
+    <SAD_ATTRIBUTE ID="107" ENTITYID="20001" CATEGORY="1" FIELDNAME="ИД объекта" DATATYPE="java.lang.Long"
+                   SYSNAME="OBJID"/>
+    <SAD_ATTRIBUTE ID="108" ENTITYID="20001" CATEGORY="1" FIELDNAME="Имя таблицы объекта" DATATYPE="java.lang.String"
+                   SYSNAME="OBJTABLENAME"/>
+    <SAD_ATTRIBUTE ID="109" ENTITYID="20001" CATEGORY="1" FIELDNAME="ИД пользователя" DATATYPE="java.lang.Long"
+                   SYSNAME="CREATEUSERID"/>
+    <SAD_ATTRIBUTE ID="110" ENTITYID="20001" CATEGORY="1" FIELDNAME="Дата создания" DATATYPE="java.util.Date"
+                   SYSNAME="CREATEDATE"/>
+    <SAD_ATTRIBUTE ID="111" ENTITYID="20001" CATEGORY="1" FIELDNAME="Примечание" DATATYPE="java.lang.String"
+                   SYSNAME="NOTE"/>
+    <SAD_ATTRIBUTE ID="112" ENTITYID="20001" CATEGORY="1" FIELDNAME="ИД внешней системы" DATATYPE="java.lang.String"
+                   SYSNAME="FSID"/>
+
+
+</dataset>

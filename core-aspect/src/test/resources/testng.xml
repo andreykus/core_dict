@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="SuiteCRM">
+    <test name="hierCreate">
+        <parameter name="className" value="oracle.jdbc.pool.OracleDataSource"/>
+        <parameter name="url" value="jdbc:oracle:thin:@192.168.100.159:1521:ORCD"/>
+        <parameter name="user_name" value="SBER_DEV_02"/>
+        <parameter name="password" value="1"/>
+        <parameter name="shema_name" value="SBER_DEV_02"/>
+        <!--<classes>-->
+        <!--<class name="com.bivgroup.core.dictionary.dao.CrmTest" />-->
+        <!--</classes>-->
+    </test>
+</suite>

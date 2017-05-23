@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AspectCollection xmlns="http://bivgroup.aspect.com/">
+    <AspectOnEntity>
+        <EntityName>ffff</EntityName>
+        <AspectCfg>
+            <name>BinaryFile</name>
+            <aspect xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="BinaryFile">
+                <objTableName>ddd</objTableName>
+                <objTablePKFieldName>fdsfdf</objTablePKFieldName>
+            </aspect>
+        </AspectCfg>
+    </AspectOnEntity>
+    <AspectOnEntity>
+        <EntityName>ffff</EntityName>
+        <AspectCfg>
+            <name>sdfsd</name>
+            <aspect xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="BinaryFile">
+                <objTableName>ddd</objTableName>
+                <objTablePKFieldName>fdsfdf</objTablePKFieldName>
+            </aspect>
+        </AspectCfg>
+    </AspectOnEntity>
+</AspectCollection>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Aspects xmlns="http://bivgroup.aspect.com/">
+    <aspectsOnModule>
+        <nameModule>com.bivgroup.crm</nameModule>
+        <aspectsOnEntity>
+            <EntityName>PClient</EntityName>
+
+            <aspectCfg>
+                <name>VersionAspect</name>
+                <aspect xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="VersionAspect">
+                    <versionEntityName>PClient_VER</versionEntityName>
+                    <versionEntityIdFieldName>VerID</versionEntityIdFieldName>
+                    <versionEntityNumberFieldName>VerNumber</versionEntityNumberFieldName>
+                    <lockVersionFieldName>VerLock</lockVersionFieldName>
+                    <lastVersionIdFieldName>VerLastID</lastVersionIdFieldName>
+                    <lastVersionTimeFieldName>VerDate</lastVersionTimeFieldName>
+                    <versionNumberParamName>VerLock</versionNumberParamName>
+
+                    <field>
+                        <fieldname>Name</fieldname>
+                        <name>Name</name>
+                        <sysname>Name</sysname>
+                    </field>
+
+                    <field>
+                        <fieldname>Name2</fieldname>
+                        <name>Name2</name>
+                        <sysname>Name2</sysname>
+                    </field>
+                    <field>
+                        <fieldname>Surname</fieldname>
+                        <name>Surname</name>
+                        <sysname>Surname</sysname>
+                    </field>
+                    <field>
+                        <fieldname>Patronymic</fieldname>
+                        <name>Patronymic</name>
+                        <sysname>Patronymic</sysname>
+                    </field>
+                    <field>
+                        <fieldname>Patronymic2</fieldname>
+                        <name>Patronymic2</name>
+                        <sysname>Patronymic2</sysname>
+                    </field>
+                    <field>
+                        <fieldname>INN</fieldname>
+                        <name>INN</name>
+                        <sysname>INN</sysname>
+                    </field>
+                    <field>
+                        <fieldname>Sex</fieldname>
+                        <name>Sex</name>
+                        <sysname>Sex</sysname>
+                    </field>
+                    <field>
+                        <fieldname>PlaceOfBirth</fieldname>
+                        <name>PlaceOfBirth</name>
+                        <sysname>PlaceOfBirth</sysname>
+                    </field>
+                    <field>
+                        <fieldname>DateOfBirth</fieldname>
+                        <name>DateOfBirth</name>
+                        <sysname>DateOfBirth</sysname>
+                    </field>
+                    <field>
+                        <fieldname>IsMarried</fieldname>
+                        <name>IsMarried</name>
+                        <sysname>IsMarried</sysname>
+                    </field>
+                    <field>
+                        <fieldname>IsEmptyPatronymic</fieldname>
+                        <name>IsEmptyPatronymic</name>
+                        <sysname>IsEmptyPatronymic</sysname>
+                    </field>
+                    <field>
+                        <fieldname>CountryID_EN</fieldname>
+                        <name>CountryID_EN</name>
+                        <sysname>CountryID_EN</sysname>
+                    </field>
+
+                </aspect>
+
+            </aspectCfg>
+        </aspectsOnEntity>
+    </aspectsOnModule>
+</Aspects>

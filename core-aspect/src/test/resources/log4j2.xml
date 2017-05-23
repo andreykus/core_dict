@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration monitorInterval="60" packages="com.bivgroup.broker.mq.common.log.appender">
+    <Properties>
+        <Property name="log-path">logs</Property>
+        <Property name="archive">log/archive</Property>
+    </Properties>
+    <Appenders>
+        <MessageAppender name="MessageAppender">
+            <HtmlLayout></HtmlLayout>
+
+        </MessageAppender>
+        <Console name="Console-Appender" target="SYSTEM_OUT">
+            <PatternLayout charset="UTF-8">
+                <pattern>
+                    [%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
+                </pattern>>
+            </PatternLayout>
+        </Console>
+        <File name="File-Appender" fileName="${log-path}/filelog.log">
+            <PatternLayout charset="UTF-8">
+                <pattern>
+                    [%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
+                </pattern>
+            </PatternLayout>
+        </File>
+        <RollingFile name="RollingFile-Appender"
+                     fileName="${log-path}/rollingfile.log"
+                     filePattern="${archive}/rollingfile.log.%d{yyyy-MM-dd-hh-mm}.gz">
+            <PatternLayout charset="UTF-8" pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="10 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="30"/>
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Logger name="com.bivgroup.core.aspect" level="trace" additivity="true">
+            <AppenderRef ref="File-Appender" level="trace"/>
+            <AppenderRef ref="RollingFile-Appender" level="trace"/>
+        </Logger>
+        <Logger name="com.bivgroup.core" level="trace" additivity="false">
+            <AppenderRef ref="File-Appender" level="trace"/>
+            <AppenderRef ref="RollingFile-Appender" level="debug"/>
+        </Logger>
+        <Logger name="org.hibernate.SQL" level="trace" additivity="false">
+            <AppenderRef ref="File-Appender" level="trace"/>
+            <AppenderRef ref="RollingFile-Appender" level="debug"/>
+        </Logger>
+        <Logger name="org.hibernate.type" level="trace" additivity="true">
+            <AppenderRef ref="File-Appender" level="trace"/>
+            <AppenderRef ref="RollingFile-Appender" level="trace"/>
+        </Logger>
+        <Root level="trace">
+            <AppenderRef ref="Console-Appender"/>
+        </Root>
+
+    </Loggers>
+</Configuration>

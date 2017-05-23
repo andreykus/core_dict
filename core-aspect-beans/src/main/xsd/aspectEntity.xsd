@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://bivgroup.aspect.com/"
+            xmlns="http://bivgroup.aspect.com/"
+            elementFormDefault="qualified">
+
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            This Template for AspectEntity Description
+        </xsd:documentation>
+    </xsd:annotation>
+
+    <xsd:element name="Aspects">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="aspectsOnModule" type="AspectsOnModule"
+                             minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="aspectsOnModule" type="AspectsOnModule"></xsd:element>
+
+    <xsd:complexType name="AspectsOnModule">
+        <xsd:sequence>
+            <xsd:element name="nameModule" type="xsd:string" nillable="false"/>
+            <xsd:element name="aspectsOnEntity" type="AspectsOnEntity"
+                         minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="aspectsOnEntity" type="AspectsOnEntity"></xsd:element>
+
+    <xsd:complexType name="AspectsOnEntity">
+        <xsd:sequence>
+            <xsd:element name="EntityName" type="xsd:string" nillable="false"/>
+            <xsd:element name="aspectCfg" type="AspectCfg" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="aspectCfg" type="AspectCfg"></xsd:element>
+
+    <xsd:complexType name="AspectCfg">
+        <xsd:sequence>
+            <xsd:element name="name" type="xsd:string" nillable="false"/>
+            <xsd:element name="aspect" type="Aspect" nillable="false"/>
+            <xsd:element name="callOrder" type="xsd:integer"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="Aspect" abstract="true">
+        <xsd:sequence>
+            <xsd:element name="field" type="Field" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="StateAspect">
+        <xsd:complexContent>
+            <xsd:extension base="Aspect">
+                <xsd:sequence>
+                    <xsd:element name="typeSysName" type="xsd:string"/>
+                    <xsd:element name="startStateName" type="xsd:string"/>
+                    <xsd:element name="idFieldName" type="xsd:string"/>
+                </xsd:sequence>
+                <xsd:attribute name="productPrefix" type="xsd:string" default="INS"/>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="BinaryFile">
+        <xsd:complexContent>
+            <xsd:extension base="Aspect">
+                <xsd:sequence>
+                    <xsd:element name="objEntityName" type="xsd:string" nillable="false"/>
+                    <xsd:element name="objEntityPKFieldName" type="xsd:string" nillable="false"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="VersionAspect">
+        <xsd:complexContent>
+            <xsd:extension base="Aspect">
+                <xsd:sequence>
+                    <xsd:element name="versionEntityName" type="xsd:string" nillable="false"/>
+                    <xsd:element name="versionEntityIdFieldName" type="xsd:string" nillable="false"/>
+                    <xsd:element name="versionEntityNumberFieldName" type="xsd:string" nillable="false"/>
+                    <xsd:element name="lockVersionFieldName" type="xsd:string" nillable="false"/>
+                    <xsd:element name="lastVersionIdFieldName" type="xsd:string" nillable="false"/>
+                    <xsd:element name="lastVersionTimeFieldName" type="xsd:string" nillable="false"/>
+                    <xsd:element name="versionNumberParamName" type="xsd:string" nillable="false"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="AuthAspect">
+        <xsd:complexContent>
+            <xsd:extension base="Aspect">
+                <xsd:sequence>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+    <xsd:element name="field" type="Field"></xsd:element>
+
+    <xsd:complexType name="Field">
+        <xsd:sequence>
+            <xsd:element name="fieldname" type="xsd:string" nillable="false"/>
+            <xsd:element name="isVersiont" type="xsd:long" nillable="true"/>
+            <xsd:element name="name" type="xsd:string" nillable="false"/>
+            <xsd:element name="sysname" type="xsd:string" nillable="false"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+</xsd:schema>
